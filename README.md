@@ -1,3 +1,18 @@
+# Organización de arhivos
+
+## Diagramas
+
+En la sección de Releases estarán:
+ 1. Diagrama de casos de uso
+ 2. Diagrama de Clases
+
+## Documento de justificación de toma de decisiones
+
+https://docs.google.com/document/d/1yfO9rZ5hCRbPOib6q0dSMuailzGuAxdYB-7bFFItxpg/edit?usp=sharing
+
+ 
+
+
 # java-base-project
 
 Esta es una plantilla de proyecto diseñada para: 
