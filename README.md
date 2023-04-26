@@ -1,9 +1,9 @@
 # Organización de arhivos
 
 ## Diagramas
- 1. Diagrama de casos de uso
  1. [Diagrama de casos de uso](./casos-de-uso/)
  2. Diagrama de Clases
+ 3. [Validador de Contrasenias](./src/main/java/ar/edu/utn/frba/dds)
 Están en las carpetas correspondientes en el Main
 
 
