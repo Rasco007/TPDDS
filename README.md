@@ -2,9 +2,8 @@
 
 ## Diagramas
  1. [Diagrama de casos de uso](./casos-de-uso/)
- 2. Diagrama de Clases
+ 2. [Diagrama de Clases](./diagrama_de_clases/)
  3. [Validador de Contrasenias](./src/main/java/ar/edu/utn/frba/dds)
-Están en las carpetas correspondientes en el Main
 
 
 # java-base-project
