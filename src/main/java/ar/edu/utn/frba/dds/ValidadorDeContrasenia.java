@@ -77,6 +77,7 @@ public class ValidadorDeContrasenia {
     if (password.length() >= MIN && mayuscula && minuscula && digito && caracterEspecial
         && esSegura && sinRepeticion && diferenteAlNombre && diferenteAlApellido) {
       System.out.println("Valid Password");
+      return true;
     }
     else {
       System.out.println("Your password does not meet the following requirements:");
@@ -98,6 +99,7 @@ public class ValidadorDeContrasenia {
         System.out.println("- Must not contain your name");
       if(!diferenteAlApellido)
         System.out.println("- Must not contain your last name");
+      return false;
     }
   }
 }
