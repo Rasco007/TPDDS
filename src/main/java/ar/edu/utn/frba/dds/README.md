@@ -1,12 +1,12 @@
 # Validador de Contrasenias 
 
 
-Se crearon los 5 principales 
+Se crearon los 5 metodos principales
 
-* No este dentro 10k contrasenias
+* No este dentro 10k contrasenias mas comunes
 * Cargar Contrasenias inseguras 
-* Que no contenga el nombre de la persona 
-* No sea repeticiones de caracteres 
+* Que no contenga el nombre/apellido de la persona 
+* No haya repeticiones de caracteres (apartir de 3)
 * Validar (donde se realiza todo) 
 
 ## 10k contrasenias mas comunes 
