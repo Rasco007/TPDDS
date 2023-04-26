@@ -1,7 +1,9 @@
 # Organización de arhivos
 
 ## Diagramas
-
+ 1. Diagrama de casos de uso
+ 1. [Diagrama de casos de uso](./casos-de-uso/)
+ 2. Diagrama de Clases
 Están en las carpetas correspondientes en el Main
 
 
