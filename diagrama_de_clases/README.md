@@ -1,6 +1,6 @@
 # Diagrama de clases 
 
-## Justificacion
+## Justificación
 
 * Se hizo clase Madre de Transporte por si en el futuro se agregan más transportes al sistema.
 * Se consideró que cualquier tipo de transporte se basa en una línea con estaciones, por lo tanto el ferrocarril como el subte implementan linea, asi tmb futuros transportes.
