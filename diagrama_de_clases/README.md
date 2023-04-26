@@ -1,5 +1,11 @@
 # Diagrama de clases 
 
+* [diagrama-de-clases](./diagrama-clases-1.mdj)
+
+## Imagen del diagrama 
+
+![imagen-diagrama](./diagrama-clases-1.jpg)
+
 ## Justificación
 
 * Se hizo clase Madre de Transporte por si en el futuro se agregan más transportes al sistema.
