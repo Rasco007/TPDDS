@@ -4,7 +4,7 @@
 
 En la sección de Releases estarán:
  1. [Diagrama de casos de uso](./casos-de-uso/)
- 2. Diagrama de Clases
+ 2. [Diagrama de Clases](./diagrama_de_clases/)
 
 
 # java-base-project
