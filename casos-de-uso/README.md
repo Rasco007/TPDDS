@@ -2,6 +2,8 @@
 
 [diagrama](./1-Casos-De-Uso.mdj)
 
+![Casos-De-Uso](./UseCaseDiagram1.jpg)
+
 ## Actores 
 
 * Administrador (Usuario/Provedor)
