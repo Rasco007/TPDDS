@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class no_es_insegura {
+public class no_es_insegura extends validacion{
   Set<String> contraseniasInseguras = new HashSet<String>();
   String path = "10k-contrasenias.txt";
   boolean cargadasContraseniasInseguras = false;

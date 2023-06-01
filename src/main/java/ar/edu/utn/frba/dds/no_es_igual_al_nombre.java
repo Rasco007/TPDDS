@@ -1,6 +1,6 @@
 package ar.edu.utn.frba.dds;
 
-public class no_es_igual_al_nombre{
+public class no_es_igual_al_nombre extends validacion{
   String nombre;
 
   public no_es_igual_al_nombre(String nombre){

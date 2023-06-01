@@ -1,6 +1,6 @@
 package ar.edu.utn.frba.dds;
 
-public class no_es_repeticion_de_caracteres {
+public class no_es_repeticion_de_caracteres extends validacion{
   public boolean validar(String password) {
     char[] stringACaracteres = password.toCharArray();
 
