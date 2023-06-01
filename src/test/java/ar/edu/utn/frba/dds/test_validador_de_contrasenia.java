@@ -9,6 +9,6 @@ public class test_validador_de_contrasenia {
     String nombre = "Roberto";
     String apellido = "Carlos";
     validador_de_contrasenia validador = new validador_de_contrasenia();
-    Assertions.assertEquals(true, validador_de_contrasenia.validar(nombre, apellido, password));
+    Assertions.assertEquals(true, validador.validar(nombre, apellido, password));
   }
 }

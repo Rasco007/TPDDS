@@ -20,6 +20,7 @@ public class validar_caracteres extends validacion{
       if(c>=33&&c<=46||c==64){
         caracterEspecial = true;
       }
+      contador += 1;
     }
     return (mayuscula && minuscula && digito && caracterEspecial);
   }
