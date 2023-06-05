@@ -4,7 +4,7 @@ import ar.edu.utn.frba.dds.API_REST.Entidades.Listado_Municipios;
 import ar.edu.utn.frba.dds.API_REST.Entidades.Listado_Provincias;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import gitretrofit2.http.Query;
+import retrofit2.http.Query;
 
 public interface Servicio {
   @GET("provincias")
