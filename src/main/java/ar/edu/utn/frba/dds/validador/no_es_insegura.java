@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.validador;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class no_es_insegura extends validacion{
+public class no_es_insegura extends validacion {
   Set<String> contraseniasInseguras = new HashSet<String>();
   String path = "../2023-tpa-mi-no-grupo-20/src/main/java/ar/edu/utn/frba/dds/10k-contrasenias.txt";
   boolean cargadasContraseniasInseguras = false;

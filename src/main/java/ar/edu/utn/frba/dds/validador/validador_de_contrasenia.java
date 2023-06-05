@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.validador;
 import java.util.ArrayList;
 
 public class validador_de_contrasenia {

@@ -1,4 +1,5 @@
 package ar.edu.utn.frba.dds;
+import ar.edu.utn.frba.dds.validador.validador_de_contrasenia;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

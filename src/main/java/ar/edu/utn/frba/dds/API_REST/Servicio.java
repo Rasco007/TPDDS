@@ -1,0 +1,23 @@
+package ar.edu.utn.frba.dds.API_REST;
+
+import ar.edu.utn.frba.dds.API_REST.Entidades.Listado_Municipios;
+import ar.edu.utn.frba.dds.API_REST.Entidades.Listado_Provincias;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import gitretrofit2.http.Query;
+
+public interface Servicio {
+  @GET("provincias")
+  Call<Listado_Provincias> provincias();
+
+  @GET("provincias")
+  Call<Listado_Provincias> provincias(@Query("campos") String campos);
+
+  @GET("municipios")
+  Call<Listado_Municipios> municipios(@Query("provincia") int idProvincia);
+
+  @GET("municipios")
+  Call<Listado_Municipios> municipios(@Query("provincia") int idProvincia, @Query("campos") String campos);
+
+  @GET("municipios")
+  Call<Listado_Municipios> municipios(@Query("provincia") int idProvincia, @Query("campos") String campos, @Query("max") int max);

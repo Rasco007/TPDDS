@@ -1,5 +1,4 @@
-package ar.edu.utn.frba.dds;
-import ar.edu.utn.frba.dds.validacion;
+package ar.edu.utn.frba.dds.validador;
 
 public class validar_caracteres extends validacion{
   public boolean validar(String password){
