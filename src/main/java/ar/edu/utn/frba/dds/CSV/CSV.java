@@ -1,34 +1,41 @@
 package ar.edu.utn.frba.dds.CSV;
-import com.openCSV
+
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.CSVWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 public class CSV{
 
-  FileReader archCSV = null;
-  CSVReader csvReader = null;
+  private FileReader archCSV = null;
+  private CSVReader csvReader = null;
 
-  private String archCSV = "./Estado_Servicios.csv";
+  private String pathCSV = "./Estado_Servicios.csv";
 
-  public crearCSV() {
+  public void crearCSV() {
     String [] header = {"Id","Lugar","Servicio","Estado","Usuario_designado","Comentarios"};
 
-    CSVWriter writer = new CSVWriter(new FileWriter(archCSV));
+    CSVWriter writer = new CSVWriter(new FileWriter(pathCSV));
 
     writer.writeNext(header);
 
     writer.close();
   }
 
-  public cargarDatos(){
+  public void cargarDatos(){
 
-    CSVWriter writer = new CSVWriter(new FileWriter(archCSV));
+    CSVWriter writer = new CSVWriter(new FileWriter(pathCSV));
 
     writer.writeNext(header);
 
     writer.close();
   }
 
-  public leerArchivo(){
-    archCSV = new FileReader("./Estado_Servicios.csv");
+  public void leerArchivo(){
+    archCSV = new FileReader(pathCSV);
     CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
     csvReader = new CSVReaderBuilder(archCSV).withCSVParser(conPuntoYComa).build();
     String[] fila = null;
