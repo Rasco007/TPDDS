@@ -4,7 +4,7 @@
 
 ## Imagen del diagrama 
 
-![imagen-diagrama](./DiagramaDeClasesEntrega2.png)
+![imagen-diagrama](./DiagramaDeClasesEntrega2.jpeg)
 
 
 
