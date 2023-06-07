@@ -1,34 +1,36 @@
 # Documento de CSV 
 
-> Estado\_Servicios.csv
-
-La idea del documento es que se exporte como un archivo csv del estado del servicio, de como se encuentra y si hay alguna persona designada
-esta es por que si se encuentra en estado de reparacion o de control tiene que tener una persona designada
+> La idea del csv es que permita la carga masiva de entidades como organismos de control
 
 ## Atributos 
 
-* Id 
-	* Se asigna un id para saber cual es el numero de solicitud
+Ambas tendran 1 solo csv el cual permite cargar tanto las entidades como los organismos de control 
+
+* Nombre 
+    * Nombre de la Entidad o Organismo 
 * Lugar 
-	* Donde estaria ocurriendo el problema o donde hubo algun inconveniente
-	* Provincia, localidad, calle
-* Servicio
-	* Cual de todos de los servicios que se encuentran en ese lugar 
-* Estado 
-	* Pueden haber varios estados en los cuales registraremos 
-		* En reparacion
-		* Reparado
-		* Otros 
-* Usuario\_designado
-	* Es la persona/usuario que este identificado la cual se realizara cargo del problema 
-* Comentarios 
-	* Comentarios del cliente, y podria agregarse los comentarios de las personas designadas 
+    * Donde estaria ubicado el servicio
+* Ubicacion 
+    * Podria ser un par de cordeandas 
+* Servicio 
+    * Aclaracion de cual servicio se trata  
+* Usuario\_asociado 
+    * En caso de tener un usuario asociado para la misma 
+    * Sino ira vacio
+* Receptor\_de\_informacion 
+    * En caso de tener un usuario al cual habra que enviarle informacion
 
+## Mejoras 
 
+> Para la proxima entrega 
 
-## Mejoras
-
-* Para proximas entregas la idea es poder mejorar y checkear bien que no haya ninguna vulnerabilidad el openCSV  por que algunos sitios dicen que tiene algunas lo cual hay que revisar bien, y en caso de haber tendremos que cambiar y agregar otras 
+* Tendria que agregar las 2 clases de Entidades prestadoras y Organismos de control 
+* Realizar la carga completa 
+* Cambiar el nombre del archivo 
+* Checkear que no haya alguna vulnerabilidad en OpenCsv
 * Mejorar la expresividad y declaratividad de las funciones
-* Realizar test ( con los ejemplos ) y realizar unos archivos de ejemplos para verificar correcto funcionamiento 
-* Agregar Algun campo en el caso de ser necesario 
+* Realizar test ( con los ejemplos ) y realizar unos archivos de ejemplos para verificar correcto funcionamiento
+* Ver si es necesario agregar el campo estado\_servicio
+
+
+
