@@ -1,10 +1,10 @@
 # Diagrama de clases 
 
-* [diagrama-de-clases](DiagramaDeClasesEntrega3.mdj)
+* [Diagrama-de-clases](DiagramaDeClasesEntrega3.mdj)
 
 ## Imagen del diagrama 
 
-![imagen-diagrama](DiagramaDeClasesEntrega3.png)
+![Imagen-diagrama](DiagramaDeClasesEntrega3.png)
 
 ## Justificacíon
 
