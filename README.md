@@ -4,7 +4,7 @@
  1. [Diagrama de casos de uso](./casos-de-uso/)
  2. [Diagrama de Clases](./diagrama_de_clases/)
  3. [Validador de Contrasenias](./src/main/java/ar/edu/utn/frba/dds)
- 4. [CSV](./CSV/README.md)
+ 4. [CSV](src/main/java/ar/edu/utn/frba/dds/CSV/README.md)
 
 
 # java-base-project
