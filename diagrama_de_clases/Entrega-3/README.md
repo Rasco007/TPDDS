@@ -2,6 +2,10 @@
 
 ![Diagrama-Entrega-3](./DiagramaDeClasesEntrega3.mdj)
 
+## Imagen del diagrama 
+
+![imagen-diagrama](./Entrega-3/DiagramaDeClasesEntrega3.png)
+
 ## Justificacion 
 
 * Los incidentes los obtenemos directamente de la comunidad para evitar el conflicto de mezcla de comunidades a la hora de analizar  validez, envio de notificaciones y revision manual del servicio
