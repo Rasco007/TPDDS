@@ -4,7 +4,7 @@
 
 ## Imagen del diagrama 
 
-![imagen-diagrama](./Entrega-3/DiagramaDeClasesEntrega3.png)
+![imagen-diagrama](./DiagramaDeClasesEntrega3.png)
 
 ## Justificacion 
 
