@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.API_REST.Entidades;
+package ar.edu.utn.frba.dds.GeoRef.Entidades;
 
 import java.util.List;
 import java.util.Optional;

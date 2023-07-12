@@ -1,7 +1,7 @@
 package ar.edu.utn.frba.dds;
 
-import ar.edu.utn.frba.dds.API_REST.Entidades.*;
-import ar.edu.utn.frba.dds.API_REST.ServicioGeoref;
+import ar.edu.utn.frba.dds.GeoRef.Entidades.*;
+import ar.edu.utn.frba.dds.GeoRef.ServicioGeoref;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.Scanner;

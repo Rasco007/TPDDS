@@ -1,7 +1,7 @@
-package ar.edu.utn.frba.dds.API_REST;
+package ar.edu.utn.frba.dds.GeoRef;
 
-import ar.edu.utn.frba.dds.API_REST.Entidades.Listado_Municipios;
-import ar.edu.utn.frba.dds.API_REST.Entidades.Listado_Provincias;
+import ar.edu.utn.frba.dds.GeoRef.Entidades.Listado_Municipios;
+import ar.edu.utn.frba.dds.GeoRef.Entidades.Listado_Provincias;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

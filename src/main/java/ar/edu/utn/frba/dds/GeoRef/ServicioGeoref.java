@@ -1,6 +1,6 @@
-package ar.edu.utn.frba.dds.API_REST;
+package ar.edu.utn.frba.dds.GeoRef;
 
-import ar.edu.utn.frba.dds.API_REST.Entidades.*;
+import ar.edu.utn.frba.dds.GeoRef.Entidades.*;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
