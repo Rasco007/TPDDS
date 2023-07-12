@@ -2,8 +2,6 @@
 
 ## Diagramas
  1. [Diagrama de casos de uso](./casos-de-uso/)
-    * [Diagrama-Entrega-1](./casos-de-uso/Entrega-1.md)
-    * [Diagrama-Entrega-2](./casos-de-uso/Entrega-2.md)
  2. [Diagrama de Clases](./diagrama_de_clases/)
  3. [Validador de Contrasenias](./src/main/java/ar/edu/utn/frba/dds)
  4. [CSV](./CSV/README.md)
