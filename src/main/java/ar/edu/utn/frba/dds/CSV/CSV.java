@@ -1,7 +1,11 @@
-package Domain.entidades;
+/*package ar.edu.utn.frba.dds.CSV;
 
+import com.opencsv.*;
+import java.io.FileReader;
+import java.io.FileWriter;
 import lombok.Getter;
 import lombok.Setter;
+
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -54,3 +58,4 @@ public class CargaCSV {
 
 
 }
+*/

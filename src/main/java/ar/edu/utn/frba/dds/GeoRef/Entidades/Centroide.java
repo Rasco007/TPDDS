@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.API_REST.Entidades;
+package ar.edu.utn.frba.dds.GeoRef.Entidades;
 
 public class Centroide {
   float lat;
