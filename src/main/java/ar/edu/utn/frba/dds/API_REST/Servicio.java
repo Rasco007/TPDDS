@@ -21,3 +21,4 @@ public interface Servicio {
 
   @GET("municipios")
   Call<Listado_Municipios> municipios(@Query("provincia") int idProvincia, @Query("campos") String campos, @Query("max") int max);
+}
