@@ -3,46 +3,59 @@
 import com.opencsv.*;
 import java.io.FileReader;
 import java.io.FileWriter;
+import lombok.Getter;
+import lombok.Setter;
 
-public class CSV{
 
-  private FileReader archCSV = null;
-  private CSVReader csvReader = null;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-  private String pathCSV = "./Estado_Servicios.csv";
 
-  public void crearCSV() {
-    String [] header = {"Id","Lugar","Servicio","Estado","Usuario_designado","Comentarios"};
+@Getter
+@Setter
 
-    CSVWriter writer = new CSVWriter(new FileWriter(pathCSV));
 
-    writer.writeNext(header);
+public class CargaCSV {
+    private List<Entidades> entidadesPrestadoras = new ArrayList<Entidades>();
+    private List<OrganismoDeControl> organismosDeControl = new ArrayList<OrganismoDeControl>();
 
-    writer.close();
-  }
+    public void cargarCSV(String archivoCSV) {
+        try {
+            String linea = "";
+            BufferedReader buffer = new BufferedReader(new FileReader(archivoCSV));
+            while ((linea = buffer.readLine()) != null) {
+                String[] datoslinea = linea.split(",");
+                String nombre = datoslinea[0].trim();
+                String tipoEntidadPrestadora = datoslinea[1].trim();
 
-  public void cargarDatos(){
+                switch(tipoEntidadPrestadora){
+                    case "ORGANISMO_DE_CONTROL":
+                        OrganismoDeControl organismoDeControl = new OrganismoDeControl(nombre);
+                        this.organismosDeControl.add(organismoDeControl);
+                        break;
+                    case "ENTIDAD_PRESTADORA":
+                        Entidades entidadPrestadora = new Entidades(nombre);
+                        this.entidadesPrestadoras.add(entidadPrestadora);
+                        break;
 
-    CSVWriter writer = new CSVWriter(new FileWriter(pathCSV));
+                }
 
-    writer.writeNext(header);
 
-    writer.close();
-  }
 
-  public void leerArchivo(){
-    archCSV = new FileReader(pathCSV);
-    CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
-    csvReader = new CSVReaderBuilder(archCSV).withCSVParser(conPuntoYComa).build();
-    String[] fila = null;
-    while((fila = csvReader.readNext()) != null) {
-      System.out.println(fila[0]
-          + " | " + fila[1]
-          + " |  " + fila[2]);
+
+            }
+            buffer.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-    archCSV.close();
-    csvReader.close();
-  }
+
 
 }
 */
