@@ -19,5 +19,7 @@
 
 ### Entrega 3 
 
-* [Entrega-3](./Entrega-3.md)
+* [Entrega-2](./Entrega-3.md)
 * [Casos-De-Uso](./3-Casos-De-Uso.mdj)
+
+![Diagrama3](./UseCaseDiagram3.jpg)
