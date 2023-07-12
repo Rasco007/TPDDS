@@ -1,6 +1,6 @@
 # Justificacion Entrega 3 
 
-![Diagrama-Entrega-3](./)
+![Diagrama-Entrega-3](./DiagramaDeClasesEntrega3.mdj)
 
 ## Justificacion 
 
