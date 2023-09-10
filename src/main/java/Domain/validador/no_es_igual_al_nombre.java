@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.validador;
+package Domain.validador;
 
 public class no_es_igual_al_nombre extends validacion {
   String nombre;

@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.validador;
+package Domain.validador;
 
 public class validar_caracteres extends validacion{
   public boolean validar(String password){

@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.mailpro;
+package Domain.mailpro;
 
 import java.util.List;
 

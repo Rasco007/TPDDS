@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.GeoRef;
+package Domain.GeoRef;
 
 import ar.edu.utn.frba.dds.GeoRef.Entidades.Listado_Municipios;
 import ar.edu.utn.frba.dds.GeoRef.Entidades.Listado_Provincias;

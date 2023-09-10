@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.validador;
+package Domain.validador;
 
 public class no_es_repeticion_de_caracteres extends validacion {
   public boolean validar(String password) {

@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.validador;
+package Domain.validador;
 
 import java.io.File;
 import java.io.FileNotFoundException;

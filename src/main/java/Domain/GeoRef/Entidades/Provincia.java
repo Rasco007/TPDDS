@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.GeoRef.Entidades;
+package Domain.GeoRef.Entidades;
 
 public class Provincia {
   public int id;
