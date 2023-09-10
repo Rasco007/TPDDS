@@ -7,9 +7,9 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class no_es_insegura extends validacion {
-  Set<String> contraseniasInseguras = new HashSet<String>();
-  String path = "../2023-tpa-mi-no-grupo-20/src/main/java/ar/edu/utn/frba/dds/validador/10k-contrasenias.txt";
-  boolean cargadasContraseniasInseguras = false;
+  private Set<String> contraseniasInseguras = new HashSet<String>();
+  private String path = "../2023-tpa-mi-no-grupo-20/src/main/java/ar/edu/utn/frba/dds/validador/10k-contrasenias.txt";
+  private boolean cargadasContraseniasInseguras = false;
 
   public boolean validar(String password) {
     if(!cargadasContraseniasInseguras) {

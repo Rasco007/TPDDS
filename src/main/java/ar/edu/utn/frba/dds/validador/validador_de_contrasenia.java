@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds.validador;
 import java.util.ArrayList;
 
 public class validador_de_contrasenia {
-  static ArrayList validaciones = new ArrayList();
+  private static ArrayList validaciones = new ArrayList();
 
   private static void cargar_validaciones(String nombre, String apelldio){
     if (validaciones.isEmpty()){
