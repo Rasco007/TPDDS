@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.GeneradorDeRankings;
-import Domain.entidades.Entidad;
+
+import ar.edu.utn.frba.dds.Entidades.Entidad;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class EntidadYEntero {
-    public Domain.entidades.Entidad entidad;
+    public Entidad entidad;
     public long cant;
 
     public EntidadYEntero(Entidad entidad) {

@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.GeneradorDeRankings;
 
+import ar.edu.utn.frba.dds.Entidades.Entidad;
 import ar.edu.utn.frba.dds.Incidente.Incidente;
 
         ;
@@ -22,9 +23,9 @@ public class MasIncidentes {
         return new Ranking(new Timestamp(System.currentTimeMillis()), new Mapeo().mapearEntidades(listaADevolver),"Mas incidentes");
     }
 
-    private void contarEntidades(Domain.entidades.Entidad entidad){
+    private void contarEntidades(Entidad entidad){
 
-        List<Domain.entidades.Entidad> aux = new Mapeo().mapearEntidades(listaADevolver);
+        List<Entidad> aux = new Mapeo().mapearEntidades(this.listaADevolver);
 
         if (!aux.contains(entidad)){
             this.listaADevolver.add(new EntidadYEntero(entidad));

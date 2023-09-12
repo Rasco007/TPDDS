@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.GeneradorDeRankings;
 
+import ar.edu.utn.frba.dds.Entidades.Entidad;
 import ar.edu.utn.frba.dds.Incidente.Incidente;
 
 import java.sql.Timestamp;
@@ -10,9 +11,9 @@ public class MayorTiempoDeCierre {
 
     private List<EntidadYEntero> listaADevolver;
 
-    private void contarDias(Domain.entidades.Entidad entidad, long tiempoDeCierre) {
+    private void contarDias(Entidad entidad, long tiempoDeCierre) {
 
-        List<Domain.entidades.Entidad> aux = new Mapeo().mapearEntidades(listaADevolver);
+        List<Entidad> aux = new Mapeo().mapearEntidades(listaADevolver);
 
         if (!aux.contains(entidad)){
             this.listaADevolver.add(new EntidadYEntero(entidad));

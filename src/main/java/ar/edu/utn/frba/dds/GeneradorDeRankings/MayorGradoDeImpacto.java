@@ -1,4 +1,5 @@
 package ar.edu.utn.frba.dds.GeneradorDeRankings;
+import ar.edu.utn.frba.dds.Entidades.Entidad;
 import ar.edu.utn.frba.dds.Incidente.Incidente;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,9 +29,9 @@ public class MayorGradoDeImpacto {
 
     }
 
-    private void contarUsuariosAfectados(Domain.entidades.Entidad entidad, long cantUsuarios){
+    private void contarUsuariosAfectados(Entidad entidad, long cantUsuarios){
 
-        List<Domain.entidades.Entidad> aux = new Mapeo().mapearEntidades(listaADevolver);
+        List<Entidad> aux = new Mapeo().mapearEntidades(listaADevolver);
 
         if (!aux.contains(entidad)){
             this.listaADevolver.add(new EntidadYEntero(entidad));

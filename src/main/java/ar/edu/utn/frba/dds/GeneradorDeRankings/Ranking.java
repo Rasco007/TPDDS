@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.dds.GeneradorDeRankings;
-import Domain.entidades.Entidad;
+
+import ar.edu.utn.frba.dds.Entidades.Entidad;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +10,8 @@ import java.util.Set;
 @Getter
 @Setter
 public class Ranking {
-    private Timestamp semana; //marca el primer dia de la semana en cuestion?
-    private List<Domain.entidades.Entidad> listaOrdenadaDeEntidades;
+    private Timestamp semana; //marca el dia en el que se hizo el ranking, Posiblemente el ultimo dia de la semana
+    private List<Entidad> listaOrdenadaDeEntidades;
     private String tipoDeRanking;
 
     public Ranking(Timestamp semana, List<Entidad> listaOrdenadaDeEntidades, String tipoDeRanking) {
