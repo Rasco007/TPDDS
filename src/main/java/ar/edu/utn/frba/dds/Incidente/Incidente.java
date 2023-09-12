@@ -1,4 +1,5 @@
 package ar.edu.utn.frba.dds.Incidente;
+import ar.edu.utn.frba.dds.Comunidad.Comunidad;
 import ar.edu.utn.frba.dds.Servicios.Servicio;
 import lombok.Getter;
 import lombok.Setter;
