@@ -1,0 +1,6 @@
+mail.smtp.host=smtp.gmail.com
+mail.smtp.port=25
+mail.smtp.user=seviciomonitoreo@gmail.com
+mail.smtp.password=umjhngbfvdcsdcvfg
+mail.smtp.starttls.enable=true
+mail.smtp.auth=true
