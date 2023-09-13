@@ -37,5 +37,17 @@ public class Perfil {
         puntosDeConfianza+=cambio;
     }
 
+    public String getGradoDeConfianza(){
+        if(this.puntosDeConfianza<2){
+            return "No confiable.";
+        } else if (this.puntosDeConfianza<=3) {
+            return "Con reservas.";
+        } else if (this.puntosDeConfianza<=5) {
+            return "Confiable de nivel 1";
+        }else{
+            return "Confiable de nivel 2";
+        }
+    }
+
 
 }
