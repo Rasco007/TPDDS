@@ -1,5 +1,6 @@
 package Domain.validador;
 
+import Domain.Personas.Usuario;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
@@ -11,7 +12,8 @@ public class no_es_insegura extends validacion {
   private String path = "../2023-tpa-mi-no-grupo-20/src/main/java/Domain/validador/10k-contrasenias.txt";
   private boolean cargadas_contrasenias_inseguras = false;
 
-  public boolean validar(String password) {
+  public boolean validar(Usuario usuario) {
+    String password = usuario.getPassword();
     if(!cargadas_contrasenias_inseguras) {
       this.cargarContraseniasInseguras();
     }

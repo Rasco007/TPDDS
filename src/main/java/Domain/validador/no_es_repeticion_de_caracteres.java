@@ -1,7 +1,10 @@
 package Domain.validador;
 
+import Domain.Personas.Usuario;
+
 public class no_es_repeticion_de_caracteres extends validacion {
-  public boolean validar(String password) {
+  public boolean validar(Usuario usuario) {
+    String password = usuario.getPassword();
     char[] stringACaracteres = password.toCharArray();
 
     for(int i = 0; i < password.length() - 2; i++) {

@@ -1,13 +1,12 @@
-package Domain.Notificaciones.apiGmail;
+package Domain.Notificaciones.api_gmail;
 
-import Domain.Entidades.Usuario;
+import Domain.Personas.Usuario;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.InvalidParameterException;
 import java.util.Properties;
-import java.util.Set;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -15,17 +14,17 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class ServicioGmail {
+public class Servicio_Gmail {
 
     private Properties properties;
     private Session session;
 
     public static void enviarMensaje(String mail, String mensajeANotificar, String asunto) throws IOException, MessagingException {
-        ServicioGmail m = new ServicioGmail(MailConfig.urlApi);
+        Servicio_Gmail m = new Servicio_Gmail(Mail_Config.urlApi);
         m.enviarEmail(asunto, mensajeANotificar, mail);
     }
 
-    public ServicioGmail(String ruta) throws IOException {
+    public Servicio_Gmail(String ruta) throws IOException {
         this.properties = new Properties();
         loadConfig(ruta);
         session = Session.getDefaultInstance(properties);

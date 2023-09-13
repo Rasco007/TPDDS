@@ -14,8 +14,8 @@ import java.util.List;
 @Setter
 
 public class CSV {
-    private List<entidad> entidadesPrestadoras = new ArrayList<entidad>();
-    private List<organismoControl> organismosDeControl = new ArrayList<organismoControl>();
+    private List<Entidad> entidadesPrestadoras = new ArrayList<Entidad>();
+    private List<Organismo_Control> organismosDeControl = new ArrayList<Organismo_Control>();
 
     public void cargarCSV(String archivoCSV) {
         try {
@@ -28,11 +28,12 @@ public class CSV {
 
                 switch(tipoEntidadPrestadora){
                     case "ORGANISMO_DE_CONTROL":
-                        organismoControl organismoDeControl = new organismoControl(nombre);
+                        Organismo_Control organismoDeControl = new Organismo_Control();
+                        organismoDeControl.setNombre(nombre);
                         this.organismosDeControl.add(organismoDeControl);
                         break;
                     case "ENTIDAD_PRESTADORA":
-                        entidad entidadPrestadora = new entidad(nombre);
+                        Entidad entidadPrestadora = new Entidad(nombre);
                         this.entidadesPrestadoras.add(entidadPrestadora);
                         break;
 

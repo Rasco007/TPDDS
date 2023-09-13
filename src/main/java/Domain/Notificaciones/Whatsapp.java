@@ -1,11 +1,11 @@
-package Domain.Notificacion;
+package Domain.Notificaciones;
 
-import Domain.Notificacion.apiWhatsapp.ServicioWhatsapp;
-import Domain.personas.Miembro;
-import Domain.personas.Persona;
 
-public class Whatsapp implements MetodoDeNotificacion{
-    public void notificar(Persona persona, String mensaje, String asunto){
-        ServicioWhatsapp.enviarMensaje(persona.getTelefono(), mensaje, asunto);
+import Domain.Notificaciones.api_whatsapp.Servicio_Whatsapp;
+import Domain.Personas.Usuario;
+
+public class Whatsapp implements Metodo_Notificacion {
+    public void notificar(Usuario usuario, String mensaje, String asunto){
+        Servicio_Whatsapp.enviarMensaje(usuario.getPerfil().getTelefono(), mensaje, asunto);
     }
 }

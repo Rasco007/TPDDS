@@ -1,10 +1,7 @@
-package Domain.Notificaciones.Crontask;
+package Domain.Notificaciones.crontask;
 
-import Domain.Notificacion.TiposDeNotificaciones.Notificacion;
-import Domain.Notificacion.TipoDeSincronizacion.SinApuro;
-import Domain.personas.Miembro;
-import Domain.personas.Persona;
-
+import Domain.Notificaciones.Tipos_Notificaciones.Notificacion;
+import Domain.Personas.Usuario;
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -14,7 +11,7 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class CronTaskNotificacion {
+public class Crontask_Notificacion {
 
     public static void main(String[] args) {
         Set<Usuario> todos_los_usuarios = null; // Consume los miembros de la DB
@@ -25,14 +22,14 @@ public class CronTaskNotificacion {
             public void run() {
                 for(Usuario usuario: todos_los_usuarios){
                     try {
-                        if(LocalDateTime.now().equals(usuario.perfil.getHorarioDeNotificacion())){
+                        if(LocalDateTime.now().equals(usuario.getPerfil().getHorario_notificacion())){
                             String mensaje = null;
-                            for(Notificacion noti: usuario.perfil.getNotificacionesAcumuladas()){
-                                if(ChronoUnit.HOURS.between(LocalDate.now(), noti.getHorarioDeNotificacion()) <= 24)
+                            for(Notificacion noti: usuario.getPerfil().getNotificaciones_a_dar()){
+                                if(ChronoUnit.HOURS.between(LocalDate.now(), noti.getHorario_Notificacion()) <= 24)
                                     mensaje += noti.getMensaje();
                                 mensaje += " ; ";
                             }
-                            usuario.perfil.getMetodoDeNotificacion().notificar(usuario, mensaje, "Resumen de notificaciones");
+                            usuario.getPerfil().getMetodo_notificacion().notificar(usuario, mensaje, "Resumen de notificaciones");
                         }
                     } catch (MessagingException e) {
                         throw new RuntimeException(e);

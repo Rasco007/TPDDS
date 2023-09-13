@@ -1,17 +1,12 @@
-package Domain.Notificacion;
+package Domain.Notificaciones;
 
-import Domain.personas.Miembro;
-import Domain.services.georef.ServicioGeoref;
-import Domain.Notificacion.TiposDeNotificaciones.Notificacion;
+import Domain.Personas.Usuario;
+import Domain.Notificaciones.Tipos_Notificaciones.Notificacion;
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
 
 public class Notificador {
   private static Notificador instancia = null;
-
 
   public static Notificador instancia(){
     if(instancia== null){
@@ -20,10 +15,9 @@ public class Notificador {
     return instancia;
   }
   public void notificar(Notificacion notificacion) throws MessagingException, IOException {
-    //Set<Miembro> todosMiembros = notificacion.getMiembrosANotificar();
 
-    for(Miembro miembro: notificacion.getMiembrosANotificar()){
-      miembro.getPersona().getTipoDeSincronazicacion().notificar(miembro, notificacion);
+    for(Usuario usuario: notificacion.getUsuario_a_notificar()){
+      usuario.getPerfil().getMetodo_sincronizacion().notificar(usuario, notificacion);
     }
     notificacion.envioCorrecto();
   }

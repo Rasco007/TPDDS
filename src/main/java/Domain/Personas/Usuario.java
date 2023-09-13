@@ -1,5 +1,6 @@
 package Domain.Personas;
 
+import Domain.GeoRef.Entidades.Centroide;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,24 +12,9 @@ public class Usuario {
   private String password;
   private Perfil perfil;
   private Rol roles;
+  private Centroide ubicacion;
 
   public Incidente cargar_nuevo_incidente(Comunidad comunidad);
 
   public cerrar_incidente(Incidente incidente);
-
-  public String getLogin() {
-    return login;
-  }
-
-  public Perfil getPerfil() {
-    return perfil;
-  }
-
-  public Rol getRoles() {
-    return roles;
-  }
-
-  public String getPassword() {
-    return password;
-  }
 }

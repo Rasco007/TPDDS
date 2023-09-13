@@ -1,6 +1,6 @@
-package Domain.Notificacion.TiposDeNotificaciones;
+package Domain.Notificaciones.Tipos_Notificaciones;
 
-import Domain.personas.Miembro;
+import Domain.Personas.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,9 +9,9 @@ import java.util.Set;
 @Getter
 @Setter
 public class Notificacion {
-    private Set<Miembro> miembrosANotificar;
+    private Set<Usuario> usuario_a_notificar;
     private String mensaje;
-    private LocalDate horarioDeNotificacion;
+    private LocalDate horario_Notificacion;
     private String asunto;
     private Boolean enviado = false;
 

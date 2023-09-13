@@ -1,30 +1,26 @@
-package Domain.Notificaciones.apiWhatsapp;
+package Domain.Notificaciones.api_whatsapp;
 
-import Domain.Incidente.Incidente;
-import Domain.Entidades.Usuario;
-import Domain.GeoRef.ServicioGeoref;
+import Domain.Personas.Usuario;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 
-import java.time.ZonedDateTime;
-import java.util.Arrays;
 import java.util.Set;
 
-public class ServicioWhatsapp {
-    private static ServicioWhatsapp instancia = null;
+public class Servicio_Whatsapp {
+    private static Servicio_Whatsapp instancia = null;
     private static Set<Usuario> usuarios;
     private static String mensaje;
 
-    public static ServicioWhatsapp instancia(){
+    public static Servicio_Whatsapp instancia(){
         if(instancia== null){
-            instancia = new ServicioWhatsapp();
+            instancia = new Servicio_Whatsapp();
         }
         return instancia;
     }
 
     public static void enviarMensaje(String telefono, String mensajeANotificar, String asunto){
-        Twilio.init(WppConfig.ACCOUNT_SID, WppConfig.AUTH_TOKEN);
+        Twilio.init(Whastapp_Config.ACCOUNT_SID, Whastapp_Config.AUTH_TOKEN);
 
         mensaje = mensajeANotificar;
 

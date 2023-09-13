@@ -1,16 +1,13 @@
-package Domain.Notificacion;
+package Domain.Notificaciones;
 
-import Domain.Notificacion.apiGmail.ServicioGmail;
-import Domain.Notificacion.apiWhatsapp.ServicioWhatsapp;
-import Domain.personas.Miembro;
-import Domain.personas.Persona;
-
+import Domain.Notificaciones.api_gmail.Servicio_Gmail;
+import Domain.Personas.Usuario;
 import javax.mail.MessagingException;
 import java.io.IOException;
 
-public class Email implements MetodoDeNotificacion{
+public class Email implements Metodo_Notificacion{
     @Override
-    public void notificar(Persona persona, String mensaje, String asunto) throws MessagingException, IOException {
-        ServicioGmail.enviarMensaje(persona.getMail(), mensaje, asunto);
+    public void notificar(Usuario usuario, String mensaje, String asunto) throws MessagingException, IOException {
+        Servicio_Gmail.enviarMensaje(usuario.getPerfil().getCorreo(), mensaje, asunto);
     }
 }
