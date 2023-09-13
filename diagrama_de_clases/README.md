@@ -1,14 +1,12 @@
 # Diagrama de clases 
 
-* [Diagrama-de-clases](DiagramaDeClasesEntrega3.mdj)
+* [diagrama-de-clases](./diagrama-clases-1.mdj)
 
 ## Imagen del diagrama 
 
-![Imagen-diagrama](DiagramaDeClasesEntrega3.png)
+![imagen-diagrama](./diagrama-clases-1.jpg)
 
-## Justificacíon
-
-# Entrega 1
+## Justificación
 
 * Se hizo clase Madre de Transporte por si en el futuro se agregan más transportes al sistema.
 * Se consideró que cualquier tipo de transporte se basa en una línea con estaciones, por lo tanto el ferrocarril como el subte implementan linea, asi tmb futuros transportes.
@@ -21,7 +19,8 @@
 * Se modelaron las comunidades como un listado de usuarios y un listado de administradores, las comunidades también cuentan con un nombre.
 * Los miembros conocen los servicios, pudiendo hacer cambios en su estado, notificando al sistema. Y los administradores pueden crear y eliminar servicios.
 
-# Entrega 2
+
+## Justificacíon
 
 * Se establece la clase ServicioPublico para la integracion de futuros servicios.
 * Los transporte implementa servicio publico.
@@ -34,13 +33,4 @@
 * Se eliminan las clases con roles dentro de la aplicación(Administrador, miembro proveedor). Se agrega la clase rol que contiene la lista de permisos para cada rol. Por ejemplo, administrador será una instancia de rol de un perfil asociado a un usuario quien tendrá sus respectivos métodos en la capa de Controlador.
 * La clase usuario conoce los roles.
 * En Comunidad la lista de miembros y de administradores pasan a ser de tipo usuario para corresponder con los cambios mencionados.
-
-# Entrega 3
-  
-* Los incidentes los obtenemos directamente de la comunidad para evitar el conflicto de mezcla de comunidades a la hora de analizar validez, envío de notificaciones y revisión manual del servicio.
-* Implementamos Patron Composite para el tipo de servicio
-* Para los servicios se decidio usar un patron composite para incluir todas las opciones posibles.
-* Comunicamos Comunidad con AdapterEnvioNotificaiones porque en el método CargarNuevoIncidente() o CerrarIncidente() va a llamar al adapter y podrá enviar todas las notificaciones a todos los miembros de esa comunidad
-* La configuración de la notificación creímos que debe ser un atributo del usuario(clase “perfil”) ya que es debería ser una configuración del mismo. No tiene nada que ver con el envío en sí de las notificaciones.
-* Las notificaciones de “Revision manual de Incidente” la resolvimos de la misma manera que las otras. El envío de la notificación va a ser el mismo, lo que cambiará será su tipo y su texto.
 

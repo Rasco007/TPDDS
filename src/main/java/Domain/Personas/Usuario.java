@@ -16,5 +16,5 @@ public class Usuario {
 
   public Incidente cargar_nuevo_incidente(Comunidad comunidad);
 
-  public cerrar_incidente(Incidente incidente);
+  public void cerrar_incidente(Incidente incidente);
 }

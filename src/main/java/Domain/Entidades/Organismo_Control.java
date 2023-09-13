@@ -13,5 +13,4 @@ public class Organismo_Control {
     private String nombre;
     private List<Entidad> entidades;
 	  private List<Servicio> servicios;
-
 }

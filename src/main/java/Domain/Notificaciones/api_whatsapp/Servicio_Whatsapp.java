@@ -20,7 +20,7 @@ public class Servicio_Whatsapp {
     }
 
     public static void enviarMensaje(String telefono, String mensajeANotificar, String asunto){
-        Twilio.init(Whastapp_Config.ACCOUNT_SID, Whastapp_Config.AUTH_TOKEN);
+        Twilio.init(Whatsapp_Config.ACCOUNT_SID, Whatsapp_Config.AUTH_TOKEN);
 
         mensaje = mensajeANotificar;
 

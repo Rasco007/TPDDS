@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 @Getter
 @Setter
-public class Notificacion_Data implements NotificacionBuilder {
+public class Notificacion_Data implements Notificacion_Builder {
 
   Notificacion notificacion = new Notificacion("Apertura de incidente");
 

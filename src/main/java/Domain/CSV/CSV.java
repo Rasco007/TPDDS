@@ -14,27 +14,28 @@ import java.util.List;
 @Setter
 
 public class CSV {
-    private List<Entidad> entidadesPrestadoras = new ArrayList<Entidad>();
-    private List<Organismo_Control> organismosDeControl = new ArrayList<Organismo_Control>();
+    private List<Entidad> entidades_prestadoras = new ArrayList<Entidad>();
+    private List<Organismo_Control> organismos_control = new ArrayList<Organismo_Control>();
 
     public void cargarCSV(String archivoCSV) {
         try {
             String linea = "";
             BufferedReader buffer = new BufferedReader(new FileReader(archivoCSV));
             while ((linea = buffer.readLine()) != null) {
-                String[] datoslinea = linea.split(",");
+                String[] datoslinea = linea.split(";");
                 String nombre = datoslinea[0].trim();
-                String tipoEntidadPrestadora = datoslinea[1].trim();
+                String tipo_entidad_prestadora = datoslinea[1].trim();
 
-                switch(tipoEntidadPrestadora){
+                switch(tipo_entidad_prestadora){
                     case "ORGANISMO_DE_CONTROL":
-                        Organismo_Control organismoDeControl = new Organismo_Control();
-                        organismoDeControl.setNombre(nombre);
-                        this.organismosDeControl.add(organismoDeControl);
+                        Organismo_Control organismo_control = new Organismo_Control();
+                        organismo_control.setNombre(nombre);
+                        this.organismos_control.add(organismo_control);
                         break;
                     case "ENTIDAD_PRESTADORA":
-                        Entidad entidadPrestadora = new Entidad(nombre);
-                        this.entidadesPrestadoras.add(entidadPrestadora);
+                        Entidad entidad_prestadora = new Entidad();
+                        entidad_prestadora.setNombre(nombre);
+                        this.entidades_prestadoras.add(entidad_prestadora);
                         break;
 
                 }
