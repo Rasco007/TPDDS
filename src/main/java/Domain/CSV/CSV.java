@@ -1,12 +1,8 @@
-/*package Domain.CSV;
+package Domain.CSV;
 
-import com.opencsv.*;
-import java.io.FileReader;
-import java.io.FileWriter;
 import lombok.Getter;
 import lombok.Setter;
-
-
+import Domain.Entidades.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,14 +10,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Getter
 @Setter
 
-
-public class CargaCSV {
-    private List<Entidades> entidadesPrestadoras = new ArrayList<Entidades>();
-    private List<OrganismoDeControl> organismosDeControl = new ArrayList<OrganismoDeControl>();
+public class CSV {
+    private List<entidad> entidadesPrestadoras = new ArrayList<entidad>();
+    private List<organismoControl> organismosDeControl = new ArrayList<organismoControl>();
 
     public void cargarCSV(String archivoCSV) {
         try {
@@ -34,19 +28,15 @@ public class CargaCSV {
 
                 switch(tipoEntidadPrestadora){
                     case "ORGANISMO_DE_CONTROL":
-                        OrganismoDeControl organismoDeControl = new OrganismoDeControl(nombre);
+                        organismoControl organismoDeControl = new organismoControl(nombre);
                         this.organismosDeControl.add(organismoDeControl);
                         break;
                     case "ENTIDAD_PRESTADORA":
-                        Entidades entidadPrestadora = new Entidades(nombre);
+                        entidad entidadPrestadora = new entidad(nombre);
                         this.entidadesPrestadoras.add(entidadPrestadora);
                         break;
 
                 }
-
-
-
-
             }
             buffer.close();
         } catch (FileNotFoundException e) {
@@ -55,7 +45,4 @@ public class CargaCSV {
             throw new RuntimeException(e);
         }
     }
-
-
 }
-*/

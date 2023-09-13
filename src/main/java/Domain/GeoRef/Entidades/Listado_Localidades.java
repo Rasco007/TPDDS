@@ -2,7 +2,7 @@ package Domain.GeoRef.Entidades;
 
 import java.util.List;
 
-public class ListadoDeLocalidades {
+public class Listado_Localidades {
     public int cantidad;
     public int total;
     public Parametro parametros;

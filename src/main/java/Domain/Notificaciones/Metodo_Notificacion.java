@@ -6,7 +6,7 @@ import Domain.personas.Persona;
 import javax.mail.MessagingException;
 import java.io.IOException;
 
-public interface MetodoDeNotificacion {
+public interface Metodo_Notificacion {
 
     void notificar(Persona persona, String mensaje, String asunto) throws MessagingException, IOException;
 }

@@ -37,6 +37,3 @@ public class ServicioWhatsapp {
         System.out.println(message.getSid());
     }
 }
-
-
-
