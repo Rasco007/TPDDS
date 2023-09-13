@@ -8,8 +8,6 @@
 
 > Obtener datos 
 
-### Usuario 
-
 * /user/{user_ID}
 * Estados 
 	* 200 -> OK
