@@ -1,4 +1,4 @@
-package Domain.Servicio;
+package Domain.Servicio.Estados;
 
 import lombok.Getter;
 import lombok.Setter;

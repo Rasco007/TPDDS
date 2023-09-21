@@ -10,9 +10,11 @@ import Domain.Personas.Comunidad;
 import Domain.Personas.Perfil;
 import Domain.Personas.Usuario;
 import Domain.Servicio.Servicio;
+import Domain.Servicio.Servicio_Base;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +44,7 @@ public class test_whatsapp {
     @Test
     public void flujoCompleto() throws MessagingException, IOException {
         Comunidad comunidad = new Comunidad();
-        List<Usuario> set2 = new List<Usuario>;
+        List<Usuario> lista = new ArrayList<Usuario>();
         Set<Comunidad> set = new HashSet<Comunidad>();
 
         Perfil perfil = new Perfil();
@@ -52,9 +54,9 @@ public class test_whatsapp {
         usuario.getPerfil().setNombre("Colo");
         usuario.getPerfil().setTelefono("+5491157072015");
         usuario.getPerfil().setComunidades(set);
-        set2.add(usuario);
+        lista.add(usuario);
 
-        comunidad.setMiembros(set2);
+        comunidad.setMiembros(lista);
 
         Metodo_Sincronizacion metodo_sincronizacion = new Cuando_Sucede();
         Metodo_Notificacion metodo_notificacion = new Whatsapp();
@@ -66,7 +68,7 @@ public class test_whatsapp {
         Establecimiento establecimiento = new Establecimiento();
         establecimiento.setNombre("Medrano");
 
-        Servicio servicioOriginal = new Servicio();
+        Servicio servicioOriginal = new Servicio_Base();
         servicioOriginal.setDescripcion("Escalera");
 
     }

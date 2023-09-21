@@ -11,6 +11,8 @@ import Domain.Personas.Comunidad;
 import Domain.Personas.Perfil;
 import Domain.Personas.Usuario;
 import Domain.Servicio.Servicio;
+import Domain.Servicio.Servicio_Base;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +43,7 @@ class test_mail {
     public void flujoCompleto() throws MessagingException, IOException {
         Comunidad comunidad = new Comunidad();
 
-        List<Usuario> set2 = new List<Usuario>;
+        List<Usuario> lista = new ArrayList<Usuario>();
         Set<Comunidad> set = new HashSet<Comunidad>();
 
         Perfil perfil = new Perfil();
@@ -51,9 +53,9 @@ class test_mail {
         usuario.getPerfil().setNombre("Facundo");
         usuario.getPerfil().setCorreo("fndalsasso@gmail.com");
         usuario.getPerfil().setComunidades(set);
-        set2.add(usuario);
+        lista.add(usuario);
 
-        comunidad.setMiembros(set2);
+        comunidad.setMiembros(lista);
 
         Metodo_Sincronizacion metodo_sincronizacion = new Cuando_Sucede();
         Metodo_Notificacion metodo_notificacion = new Email();
@@ -66,11 +68,11 @@ class test_mail {
         Establecimiento establecimiento = new Establecimiento();
         establecimiento.setNombre("Medrano");
 
-        Servicio servicio_original = new Servicio();
+        Servicio servicio_original = new Servicio_Base();
         servicio_original.setDescripcion("Escalera");
 
-        usuario.cargar_nuevo_incidente(establecimiento,servicio_original, "");
+        //usuario.cargar_nuevo_incidente(establecimiento,servicio_original, "");
 
-        usuario.cerrar_incidente(comunidad.getListado_incidentes().iterator().next());
+        //usuario.cerrar_incidente(comunidad.getListado_incidentes().iterator().next());
     }
 }

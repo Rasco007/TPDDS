@@ -19,8 +19,8 @@ public class Notificacion_Data_Cierre implements Notificacion_Builder {
 
     @Override
     public Notificacion_Builder agregar_mensaje(Incidente incidente) {
-        notificacion.setMensaje("El establecimiento " +  incidente.getEstablecimiento().getNombre()
-                + " solucionó las fallas en el servicio " + incidente.getServicio().getServicio().getNombre());
+        notificacion.setMensaje("El establecimiento " +  incidente.getServicio_afectado().getEstablecimiento().getNombre()
+                + " solucionó las fallas en el servicio " + incidente.getServicio_afectado().getDescripcion());
         return this;
     }
 

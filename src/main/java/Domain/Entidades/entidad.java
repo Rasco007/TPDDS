@@ -1,12 +1,10 @@
 package Domain.Entidades;
 
-
 import Domain.Personas.Usuario;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Set;
 @Getter
 @Setter
 public class Entidad {
