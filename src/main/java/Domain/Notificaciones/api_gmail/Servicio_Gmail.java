@@ -1,7 +1,5 @@
 package Domain.Notificaciones.api_gmail;
 
-import Domain.Personas.Usuario;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;

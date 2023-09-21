@@ -23,7 +23,9 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/* Para que funcione ir a
+https://console.twilio.com/us1/develop/sms/try-it-out/whatsapp-learn?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Flearn%3Fx-target-region%3Dus1
+ */
 
 public class test_whatsapp {
 
@@ -31,12 +33,11 @@ public class test_whatsapp {
     public void mandarMensaje(){
         Twilio.init(Whatsapp_Config.ACCOUNT_SID, Whatsapp_Config.AUTH_TOKEN);
 
-
         Message message = Message.creator(
-                        new PhoneNumber("whatsapp:+5491123270237"),
-                        new PhoneNumber(Whatsapp_Config.numeroDeEnvio),
-                        "Esta es una prueba de DDS")
-                .create();
+                new com.twilio.type.PhoneNumber("whatsapp:+5491157072015"),
+                new com.twilio.type.PhoneNumber(Whatsapp_Config.numeroDeEnvio),
+                "Esta es una prueba de DDS")
+            .create();
 
         System.out.println("Se envio el mensaje con id: " + message.getSid());
     }

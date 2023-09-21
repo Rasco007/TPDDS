@@ -30,7 +30,7 @@ class test_mail {
             Servicio_Gmail m = new Servicio_Gmail(Mail_Config.urlApi);
 
 
-            m.enviarEmail("Test", "Hola mundo", "fndalsasso@gmail.com");
+            m.enviarEmail("Test", "Hola mundo", "fdalsasso@frba.utn.edu.ar");
 
             System.out.println("Se ha enviado!!");
         } catch (InvalidParameterException | IOException | MessagingException ex) {
