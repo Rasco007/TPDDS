@@ -3,7 +3,6 @@ package Domain.GeneradorDeRankings;
 import Domain.Entidades.Entidad;
 import Domain.Incidente.Incidente;
 import java.sql.Timestamp;
-import java.util.Collections;
 import java.util.List;
 
 public class Mas_Incidentes {
