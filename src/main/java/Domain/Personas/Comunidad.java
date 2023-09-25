@@ -2,18 +2,54 @@ package Domain.Personas;
 
 import Domain.Incidente.Incidente;
 import java.util.List;
+import java.util.Set;
+
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 @Getter
 @Setter
+@Entity
+@Table
+
 public class Comunidad {
+  @Id
+  @GeneratedValue
+  private int id;
+  @Column(columnDefinition = "VARCHAR")
   private String nombre;
-  private List<Usuario> miembros;
-  private List<Usuario> administradores;
+  @OneToMany(mappedBy = "comunidad_afectada")
   private List<Incidente> listado_incidentes;
+
+
+
+  @Transient
+  private Set<Usuario> miembros;
+  @ManyToMany
+  @JoinTable(name = "comunidad_administrador",joinColumns = @JoinColumn(name = "comunidad",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "administrador",referencedColumnName = "id"))
+  private List<Usuario> administradores;
+  @ManyToMany
+  @JoinTable(name = "comunidad_observador",joinColumns = @JoinColumn(name = "comunidad",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "observador",referencedColumnName = "id"))
   private List<Usuario> miembros_observadores;
+  @ManyToMany
+  @JoinTable(name = "comunidad_afectado",joinColumns = @JoinColumn(name = "comunidad",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "afectado",referencedColumnName = "id"))
   private List<Usuario> miembros_afectados;
+
+
+  public void setMiembros(){
+    for(int i=0;i<administradores.size();i++){
+      miembros.add(administradores.get(i));
+    }
+    for(int i=0;i<miembros_observadores.size();i++){
+      miembros.add(miembros_observadores.get(i));
+    }
+    for(int i=0;i<miembros_afectados.size();i++){
+      miembros.add(miembros_afectados.get(i));
+    }
+  }
+
 
   //Para manejo de confianza
   private float puntos_confianza;
@@ -31,4 +67,5 @@ public class Comunidad {
       return "Confiable de nivel 2";
     }
   }
+
 }

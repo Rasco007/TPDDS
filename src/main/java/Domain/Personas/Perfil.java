@@ -10,25 +10,46 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.Set;
 @Getter
 @Setter
-
+@Entity
+@Table
 public class Perfil {
+  @Id
+  @GeneratedValue
+  private int id;
+  @Column(columnDefinition = "varchar(100)")
   private String nombre;
+  @Column(columnDefinition = "varchar(100)")
   private String apellido;
+  @Column(columnDefinition = "varchar(100)")
   private String correo;
+  @Column(columnDefinition = "varchar(100)")
   private String telefono;
+  @Transient
   private Set<Comunidad> comunidades;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "ubicacionDeInteres_id",referencedColumnName = "id")
   private Ubicacion ubicacion_interes;
-  private Metodo_Notificacion metodo_notificacion;
+  //TODO
+  //@Column (columnDefinition = "String")
+  //private Metodo_Notificacion metodo_notificacion;
+  @ManyToMany(mappedBy = "perfiles_a_notificar")
   private List<Notificacion> notificaciones_a_dar;
+  @Column
   private LocalDateTime horario_notificacion;
-  private Metodo_Sincronizacion metodo_sincronizacion;
-
+  //Todo converter
+  //private Metodo_Sincronizacion metodo_sincronizacion;
+  @OneToOne(mappedBy = "perfil")
+  private Usuario usuario;
   //para confianza
+  @Column
   private float puntosDeConfianza;
+  @OneToMany(mappedBy = "usuario_iniciador")
   private List<Incidente> incidentesAbiertos;
+  @OneToMany(mappedBy = "usuario_finalizador")
   private List<Incidente> incidentesCerrados;
 
   public void cambiar_confianza(float cambio){
@@ -45,5 +66,19 @@ public class Perfil {
     }else{
       return "Confiable de nivel 2";
     }
+  }
+
+  public void iniciarComunidades(){
+      for(int i=0;i<usuario.getComunidades_admin().size();i++){
+        comunidades.add(usuario.getComunidades_admin().get(i));
+      }
+      for(int i=0;i<usuario.getComunidades_observador().size();i++){
+        comunidades.add(usuario.getComunidades_observador().get(i));
+
+      }
+      for(int i=0;i<usuario.getComunidades_afectados().size();i++){
+        comunidades.add(usuario.getComunidades_afectados().get(i));
+      }
+
   }
 }

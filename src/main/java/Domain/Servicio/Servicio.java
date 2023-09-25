@@ -5,13 +5,29 @@ import Domain.Personas.Usuario;
 import Domain.Servicio.Estados.Estado_Servicio;
 import java.util.List;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 @Getter
 @Setter
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Servicio {
+  @Id
+  @GeneratedValue
+  private int id;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "estado",referencedColumnName = "id")
   private Estado_Servicio estado_servicio;
+  @Column(columnDefinition = "varchar2(100)")
   private String descripcion;
+  @ManyToMany
+  @JoinTable(name = "usuario_servicio",joinColumns = @JoinColumn(name = "servicio",referencedColumnName = "id")
+                    ,inverseJoinColumns = @JoinColumn(name = "usuario",referencedColumnName = "id"))
   private List<Usuario> usuarios_asociados;
+  @ManyToOne
+  @JoinColumn(name = "establecimiento_id",referencedColumnName = "id")
   private Establecimiento establecimiento;
 }

@@ -5,11 +5,34 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 @Getter
 @Setter
+@Entity
+@Table
 public class Entidad {
+  @Id
+  @GeneratedValue
+  private int id;
+  @ManyToMany
+  @JoinTable(name = "entidad_usuario",joinColumns = @JoinColumn(name = "entidad_id",referencedColumnName = "id")
+                      ,inverseJoinColumns = @JoinColumn(name = "usuario_id",referencedColumnName = "id"))
   private List<Usuario> usuarios_asociados;
+  @OneToOne
+  @JoinColumn(name = "receptorDeInfo_id", referencedColumnName = "id")
   private Usuario receptor_informacion_designado;
+  @OneToMany(mappedBy = "entidad")
   private List<Establecimiento> sucursales;
+  @Column(columnDefinition = "varchar2(100)")
   private String nombre;
+
+
+
+  //Persistenciasç
+  @ManyToMany(mappedBy = "entidades")
+  private List<Entidad_Prestadora> prestadoras;
+  @ManyToMany(mappedBy = "entidades")
+  private List<Organismo_Control> organismos;
+
 }

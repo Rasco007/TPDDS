@@ -8,6 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
+//TODO aca hay q ver como manejarlo
 public class Generador_Rankings {
     private List<Incidente> incidentesDeLaSemana;
 
