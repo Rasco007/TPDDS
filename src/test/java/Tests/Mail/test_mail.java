@@ -55,7 +55,7 @@ class test_mail {
         usuario.getPerfil().setComunidades(set);
         lista.add(usuario);
 
-        comunidad.setMiembros(lista);
+        comunidad.setMiembros((Set<Usuario>) lista);
 
         Metodo_Sincronizacion metodo_sincronizacion = new Cuando_Sucede();
         Metodo_Notificacion metodo_notificacion = new Email();

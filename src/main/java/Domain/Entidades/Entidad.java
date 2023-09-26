@@ -1,5 +1,6 @@
 package Domain.Entidades;
 
+import Domain.GeneradorDeRankings.Ranking;
 import Domain.Personas.Usuario;
 import java.util.List;
 import lombok.Getter;
@@ -27,7 +28,16 @@ public class Entidad {
   @Column(columnDefinition = "varchar2(100)")
   private String nombre;
 
-
+  //rankings
+  @OneToOne
+  @JoinColumn(name = "rankingTiempoDeCierre",referencedColumnName = "id")
+  private Ranking rankingTiempoDeCierre;
+  @OneToOne
+  @JoinColumn(name = "rankingImpacto",referencedColumnName = "id")
+  private Ranking rankingImpacto;
+  @OneToOne
+  @JoinColumn(name = "rankingIncidentes",referencedColumnName = "id")
+  private Ranking rankingCantIncidentes;
 
   //Persistenciasç
   @ManyToMany(mappedBy = "entidades")

@@ -35,13 +35,15 @@ public class Perfil {
   private Ubicacion ubicacion_interes;
   //TODO
   //@Column (columnDefinition = "String")
-  //private Metodo_Notificacion metodo_notificacion;
+  @Transient
+  private Metodo_Notificacion metodo_notificacion;
   @ManyToMany(mappedBy = "perfiles_a_notificar")
   private List<Notificacion> notificaciones_a_dar;
   @Column
   private LocalDateTime horario_notificacion;
   //Todo converter
-  //private Metodo_Sincronizacion metodo_sincronizacion;
+  @Transient
+  private Metodo_Sincronizacion metodo_sincronizacion;
   @OneToOne(mappedBy = "perfil")
   private Usuario usuario;
   //para confianza

@@ -1,4 +1,5 @@
 package Domain.Incidente;
+import Domain.GeneradorDeRankings.Generador_Rankings;
 import Domain.Personas.Comunidad;
 import Domain.Personas.Perfil;
 import Domain.Servicio.Servicio;
@@ -38,5 +39,11 @@ public class Incidente {
     @ManyToOne
     @JoinColumn(name = "usuario_finalizador",referencedColumnName = "id")
     private Perfil usuario_finalizador;
+
+
+    //persistencia
+    @ManyToOne
+    @JoinColumn(name = "generador_semanal",referencedColumnName = "id")
+    private Generador_Rankings generadorSemanal;
 }
 

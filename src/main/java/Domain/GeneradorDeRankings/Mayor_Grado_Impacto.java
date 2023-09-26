@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -13,7 +14,7 @@ public class Mayor_Grado_Impacto {
 
 
     private List<Entidad_Y_Entero> listaADevolver;
-    public Ranking generarRanking(List<Incidente> incidentes){
+    public void generarRanking(List<Incidente> incidentes){
         long cantAfectados;
 
         for (int i=0;i<incidentes.size();i++){
@@ -22,8 +23,11 @@ public class Mayor_Grado_Impacto {
         }
 
         //Collections.sort(this.listaADevolver,(a, b)-> {a.getCant() < b.getCant()});
-
-        return new Ranking(new Timestamp(System.currentTimeMillis()), new Mapeo().mapearEntidades(listaADevolver),"Mayor grado de impacto");
+        listaADevolver = new SortEntidades().sortEntidadYentero(listaADevolver);
+        for(int i=0;i<listaADevolver.size();i++){
+            listaADevolver.get(i).getEntidad().setRankingImpacto(
+                    new Ranking(LocalDate.now(),i,"Grado De Imparcto"));
+        }
 
 
     }

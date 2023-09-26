@@ -4,6 +4,7 @@ import Domain.Entidades.Entidad;
 import Domain.Incidente.Incidente;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Mayor_Tiempo_Cierre {
@@ -32,7 +33,7 @@ public class Mayor_Tiempo_Cierre {
         this.listaADevolver=null;
     }
 
-    public Ranking generarRanking(List<Incidente> incidentes) {
+    public void generarRanking(List<Incidente> incidentes) {
         long tiempoDeCierre;
         for (int i=0;i<incidentes.size();i++){
             tiempoDeCierre=incidentes.get(i).getFecha_Hora_de_cierre().getTime()-incidentes.get(i).getFecha_hora_de_inicio().getTime();
@@ -41,7 +42,11 @@ public class Mayor_Tiempo_Cierre {
 
 
         //Collections.sort(this.listaADevolver,(a, b)-> {a.getCant() < b.getCant()});
+        listaADevolver = new SortEntidades().sortEntidadYentero(listaADevolver);
 
-        return new Ranking(new Timestamp(System.currentTimeMillis()), new Mapeo().mapearEntidades(listaADevolver),"Mayor tiempo de cierre");
+        for(int i=0;i<listaADevolver.size();i++){
+            listaADevolver.get(i).getEntidad().setRankingTiempoDeCierre(
+                    new Ranking(LocalDate.now(),1,"Tiempo De Cierre"));
+        }
     }
 }

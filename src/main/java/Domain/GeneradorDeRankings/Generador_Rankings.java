@@ -4,12 +4,23 @@ import lombok.Getter;
 import lombok.Setter;
 
 //import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
 @Setter
-//TODO aca hay q ver como manejarlo
+@Entity
+@Table
 public class Generador_Rankings {
+
+
+    @Id
+    @GeneratedValue
+    private int id;
+    @Column
+    private LocalDate semanaActual;
+    @OneToMany(mappedBy = "generadorSemanal")
     private List<Incidente> incidentesDeLaSemana;
 
     public Ranking generarRanking(){
@@ -17,5 +28,9 @@ public class Generador_Rankings {
         new Mayor_Grado_Impacto().generarRanking(incidentesDeLaSemana);
         new Mayor_Tiempo_Cierre().generarRanking(incidentesDeLaSemana);
         return null;
+    }
+
+    public Generador_Rankings() {
+        semanaActual=LocalDate.now();
     }
 }

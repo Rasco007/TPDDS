@@ -49,7 +49,7 @@ public class Servicio_Georef {
   }
   public Listado_Localidades listado_Localidades(Localidad localidad) throws IOException {
     Servicio georefService = this.retrofit.create(Servicio.class);
-    Call<Listado_Localidades> requestListado_Localidades = georefService.localidades(localidad.id);
+    Call<Listado_Localidades> requestListado_Localidades = georefService.localidades(localidad.getId());
     Response<Listado_Localidades> responseListado_Localidades = requestListado_Localidades.execute();
     return responseListado_Localidades.body();
   }
