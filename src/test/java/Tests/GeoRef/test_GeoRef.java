@@ -1,4 +1,4 @@
-package Tests.API_REST;
+package Tests.GeoRef;
 
 import Domain.GeoRef.Entidades.*;
 import Domain.GeoRef.Servicio_Georef;
@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 
-public class test_API_REST {
+public class test_GeoRef {
   public static void main(String[] args) throws IOException {
     Servicio_Georef servicioGeoref = Servicio_Georef.instancia();
     System.out.println("Seleccione una de las siguientes provincias, ingresando su id:");
