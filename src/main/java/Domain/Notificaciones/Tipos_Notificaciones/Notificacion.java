@@ -1,6 +1,7 @@
 package Domain.Notificaciones.Tipos_Notificaciones;
 
 import Domain.Personas.Usuario;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class Notificacion {
-    private Set<Usuario> usuario_a_notificar;
+    private List<Usuario> usuario_a_notificar;
     private String mensaje;
     private LocalDate horario_Notificacion;
     private String asunto;

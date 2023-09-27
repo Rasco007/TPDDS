@@ -17,7 +17,7 @@ public class Servicio_Gmail {
     private Properties properties;
     private Session session;
 
-    public static void enviarMensaje(String mail, String mensajeANotificar, String asunto) throws IOException, MessagingException {
+    public static void enviarMensaje(String mail, String mensajeANotificar, String asunto) throws MessagingException, IOException {
         Servicio_Gmail m = new Servicio_Gmail(Mail_Config.urlApi);
         m.enviarEmail(asunto, mensajeANotificar, mail);
     }
