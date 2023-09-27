@@ -1,6 +1,8 @@
 package Domain.Personas;
 
 import Domain.Incidente.Incidente;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +17,13 @@ import javax.persistence.*;
 @Table
 
 public class Comunidad {
+  public Comunidad() {
+    listado_incidentes=new ArrayList<Incidente>();
+    miembros_afectados=new ArrayList<Usuario>();
+    administradores=new ArrayList<Usuario>();
+    miembros_observadores=new ArrayList<Usuario>();
+  }
+
   @Id
   @GeneratedValue
   private int id;

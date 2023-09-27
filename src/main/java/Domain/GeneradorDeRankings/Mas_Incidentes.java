@@ -4,6 +4,7 @@ import Domain.Entidades.Entidad;
 import Domain.Incidente.Incidente;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Mas_Incidentes {
@@ -42,7 +43,7 @@ public class Mas_Incidentes {
     }
 
     public Mas_Incidentes() {
-        this.listaADevolver=null;
+        this.listaADevolver=new ArrayList<Entidad_Y_Entero>();
     }
 }
 

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -49,6 +50,6 @@ public class Mayor_Grado_Impacto {
     }
 
     public Mayor_Grado_Impacto() {
-        this.listaADevolver=null;
+        this.listaADevolver=new ArrayList<Entidad_Y_Entero>();
     }
 }

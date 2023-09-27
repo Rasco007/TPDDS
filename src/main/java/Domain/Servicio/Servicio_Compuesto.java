@@ -1,6 +1,9 @@
 package Domain.Servicio;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import Domain.Servicio.Estados.Activo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +18,10 @@ import javax.persistence.Table;
 @Table
 public class Servicio_Compuesto extends Servicio{
 
+  public Servicio_Compuesto() {
+    setEstado_servicio(new Activo());
+    servicios=new ArrayList<Servicio>();
+  }
   @OneToMany(mappedBy = "pertenece_a")
   private List<Servicio> servicios;
 

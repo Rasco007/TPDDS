@@ -14,6 +14,11 @@ import java.sql.Timestamp;
 @Entity
 @Table
 public class Incidente {
+    public Incidente() {
+        fecha_hora_de_inicio= new Timestamp(System.currentTimeMillis());
+        resuelto=false;
+    }
+
     @Id
     @GeneratedValue
     private int id;

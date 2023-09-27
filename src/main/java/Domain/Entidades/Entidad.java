@@ -13,6 +13,11 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Entidad {
+  public Entidad() {
+
+
+  }
+
   @Id
   @GeneratedValue
   private int id;
