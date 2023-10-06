@@ -44,6 +44,8 @@ public class Entidad {
   @JoinColumn(name = "rankingIncidentes",referencedColumnName = "id")
   private Ranking rankingCantIncidentes;
 
+
+
   //Persistenciasç
   @ManyToMany(mappedBy = "entidades")
   private List<Entidad_Prestadora> prestadoras;

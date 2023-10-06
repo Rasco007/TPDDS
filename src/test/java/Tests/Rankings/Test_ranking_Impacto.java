@@ -303,8 +303,8 @@ public class Test_ranking_Impacto {
         this.inicializar();
 
         new Mayor_Grado_Impacto().generarRanking(incidentes);
-        //LISTA: A,E,BANCO
-        //CANT 10 13 5
+        //LISTA:  A,E,BANCO
+        //CANT    10 13 5
         //puestos 1 0 2
         boolean b = entidades.get(1).getRankingImpacto().getPosicion() < entidades.get(0).getRankingImpacto().getPosicion() &&
                 entidades.get(0).getRankingImpacto().getPosicion() < entidades.get(2).getRankingImpacto().getPosicion() ;

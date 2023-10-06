@@ -10,12 +10,16 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.Entity;
 import javax.persistence.EntityTransaction;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class testBaseDeDatos implements WithSimplePersistenceUnit {
 
-    private boolean agregarEntidad(){
+    private boolean agregarEntidad() throws SQLException {
         Usuario usuario=new Usuario();
         usuario.setLogin("unUsuario");
         /*Entidad entidad= new Entidad();
@@ -25,6 +29,9 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
         entidad_prestadora.setNombre("Metrovias");
         List<Entidad> entidades=new ArrayList<Entidad>(entidad.getId());
         entidad_prestadora.setEntidades(entidades);*/
+
+        String jdbcUrl = "jdbc:mysql://your-mysql-server:3306/your-database?serverTimezone=America/Argentina/Buenos_Aires";
+        Connection connection = DriverManager.getConnection(jdbcUrl, "root", "1234");
 
         EntityTransaction tx = entityManager().getTransaction();
         tx.begin();
@@ -37,7 +44,7 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
     }
 
     @Test
-    public void testearBaseDeDatos(){
+    public void testearBaseDeDatos() throws SQLException {
         Assertions.assertEquals(true,agregarEntidad());
     };
 

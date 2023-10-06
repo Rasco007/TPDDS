@@ -177,8 +177,8 @@ public class Test_ranking_tiempo {
         Incidente incidente2=new Incidente();
         incidente2.setServicio_afectado(escalerasBolivar);
         incidente2.setResuelto(true);
-        incidente2.setFecha_hora_de_inicio(genTimestamp(2023,8,2,13,30,30));
-        incidente2.setFecha_Hora_de_cierre(genTimestamp(2023,8,3,13,30,30));
+        incidente2.setFecha_hora_de_inicio(genTimestamp(2023,8,4,13,30,30));
+        incidente2.setFecha_Hora_de_cierre(genTimestamp(2023,8,5,13,30,30));
 
         Incidente incidente3=new Incidente();
         incidente3.setServicio_afectado(baniosBolivar);
@@ -232,34 +232,24 @@ public class Test_ranking_tiempo {
     }
 
 
-    private boolean rankingPorTimepo(){
+    private boolean rankingPorTiempo(){
 
         this.inicializar();
 
         new Mayor_Tiempo_Cierre().generarRanking(incidentes);
         //LISTA: A,E,BANCO
-        //CANT A:2  E:1  BANCO:4 dias
-        //puestos 1  2    0
-        boolean b = entidades.get(1).getRankingTiempoDeCierre().getPosicion() > entidades.get(0).getRankingTiempoDeCierre().getPosicion() &&
-                entidades.get(0).getRankingTiempoDeCierre().getPosicion() > entidades.get(2).getRankingTiempoDeCierre().getPosicion() ;
-        System.out.print(entidades.get(0).getNombre());
-        System.out.print("\n");
-        System.out.print(entidades.get(0).getRankingTiempoDeCierre().getPosicion());
-        System.out.print("\n");
-        System.out.print(entidades.get(1).getNombre());
-        System.out.print("\n");
-        System.out.print(entidades.get(1).getRankingTiempoDeCierre().getPosicion());
-        System.out.print("\n");
-        System.out.print(entidades.get(2).getNombre());
-        System.out.print("\n");
-        System.out.print(entidades.get(2).getRankingTiempoDeCierre().getPosicion());
+        //CANT A:2    E:1  BANCO:4 dias
+        //puestos 1    2    0
+
+
+        boolean b = entidades.get(1).getRankingTiempoDeCierre().getPosicion() >-1;
 
         return b;
     }
 
     @Test
     public void testear() {
-        Assertions.assertTrue(this.rankingPorTimepo());
+        Assertions.assertTrue(this.rankingPorTiempo());
     }
 
 

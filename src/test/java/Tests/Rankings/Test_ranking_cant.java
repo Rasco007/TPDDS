@@ -163,6 +163,15 @@ public class Test_ranking_cant {
 
 
         //INCIDENTES
+        //Linea A
+        Incidente incidente6=new Incidente();
+        incidente6.setServicio_afectado(banioHombresLoria);
+        Incidente incidente7=new Incidente();
+        incidente7.setServicio_afectado(escalerasLoria);
+        Incidente incidente8=new Incidente();
+        incidente8.setServicio_afectado(escalerasMiserere);
+        Incidente incidente9=new Incidente();
+        incidente9.setServicio_afectado(banioHombresMiserere);
         //linea E
         Incidente incidente1=new Incidente();
         incidente1.setServicio_afectado(escalerasBolivar);
@@ -176,30 +185,24 @@ public class Test_ranking_cant {
         incidente4.setResuelto(true);
         Incidente incidente5=new Incidente();
         incidente5.setServicio_afectado(banioMujeresJujuy);
-        //Linea A
-        Incidente incidente6=new Incidente();
-        incidente6.setServicio_afectado(banioHombresLoria);
-        Incidente incidente7=new Incidente();
-        incidente7.setServicio_afectado(escalerasLoria);
-        Incidente incidente8=new Incidente();
-        incidente8.setServicio_afectado(escalerasMiserere);
-        Incidente incidente9=new Incidente();
-        incidente9.setServicio_afectado(banioHombresMiserere);
+
         //banco
         Incidente incidente10=new Incidente();
         incidente10.setServicio_afectado(ascensorBancoCiudadBoedo);
         Incidente incidente11=new Incidente();
         incidente11.setServicio_afectado(banioHombresBancoCiudadBoedo);
 
+
+        incidentes.add(incidente6);
+        incidentes.add(incidente7);
+        incidentes.add(incidente8);
+        incidentes.add(incidente9);
         incidentes.add(incidente1);
         incidentes.add(incidente2);
         incidentes.add(incidente3);
         incidentes.add(incidente4);
         incidentes.add(incidente5);
-        incidentes.add(incidente6);
-        incidentes.add(incidente7);
-        incidentes.add(incidente8);
-        incidentes.add(incidente9);
+
         incidentes.add(incidente10);
         incidentes.add(incidente11);
     }
@@ -215,9 +218,13 @@ public class Test_ranking_cant {
         //puestos 2 1 3
         boolean b = entidades.get(1).getRankingCantIncidentes().getPosicion() < entidades.get(0).getRankingCantIncidentes().getPosicion() &&
                     entidades.get(0).getRankingCantIncidentes().getPosicion() < entidades.get(2).getRankingCantIncidentes().getPosicion() ;
-        System.out.print(entidades.get(0).getNombre());
+       /* System.out.print(entidades.get(0).getNombre());
         System.out.print("\n");
         System.out.print(entidades.get(0).getRankingCantIncidentes().getPosicion());
+        System.out.print("\n");
+        System.out.print(entidades.get(0).getRankingCantIncidentes().getSemana());
+        System.out.print("\n");
+        System.out.print(entidades.get(0).getRankingCantIncidentes().getTipoDeRanking());
         System.out.print("\n");
         System.out.print(entidades.get(1).getNombre());
         System.out.print("\n");
@@ -226,7 +233,7 @@ public class Test_ranking_cant {
         System.out.print(entidades.get(2).getNombre());
         System.out.print("\n");
         System.out.print(entidades.get(2).getRankingCantIncidentes().getPosicion());
-
+*/
         return b;
     }
 

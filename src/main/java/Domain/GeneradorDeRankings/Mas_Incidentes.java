@@ -15,10 +15,18 @@ public class Mas_Incidentes {
         for (int i=0;i<incidentes.size();i++){
             this.contarEntidades(incidentes.get(i).getServicio_afectado().getEstablecimiento().getEntidad());
         }
-
+        for(int i=0;i<listaADevolver.size();i++){
+            System.out.print(listaADevolver.get(i).getEntidad().getNombre());System.out.print(listaADevolver.get(i).getCant());
+            System.out.print("\n");
+        }
+        System.out.print("\n");
         //Collections.sort(this.listaADevolver,(a,b)-> {a.getCant() < b.getCant()});
         listaADevolver = new SortEntidades().sortEntidadYentero(listaADevolver);
-
+        for(int i=0;i<listaADevolver.size();i++){
+            System.out.print(listaADevolver.get(i).getEntidad().getNombre());System.out.print(listaADevolver.get(i).getCant());
+            System.out.print("\n");
+        }
+        System.out.print("\n");
         for(int i=0;i<listaADevolver.size();i++){
             listaADevolver.get(i).getEntidad().setRankingCantIncidentes(
                     new Ranking(LocalDate.now(),i,"Mas Incidentes"));

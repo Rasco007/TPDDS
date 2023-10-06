@@ -20,11 +20,13 @@ public class SortEntidades {
                 if (listaOriginal.get(i-1).getCant() < listaOriginal.get(i).getCant()) {
 
                     temp = listaOriginal.get(i-1);
-                    temp2 = listaOriginal.get(i);
-                    listaOriginal.get(i-1).setEntidad(temp2.getEntidad());
+                    //temp2 = listaOriginal.get(i);
+                    /*listaOriginal.get(i-1).setEntidad(temp2.getEntidad());
                     listaOriginal.get(i-1).setCant(temp2.getCant());
                     listaOriginal.get(i).setEntidad(temp.getEntidad());
-                    listaOriginal.get(i).setCant(temp.getCant());
+                    listaOriginal.get(i).setCant(temp.getCant());*/
+                    listaOriginal.set(i-1,listaOriginal.get(i));
+                    listaOriginal.set(i,temp);
                     swapped = true;
                 }
             }

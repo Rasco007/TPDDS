@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Mayor_Tiempo_Cierre {
 
-    private List<Entidad_Y_Entero> listaADevolver=new ArrayList<Entidad_Y_Entero>();
+    private List<Entidad_Y_Entero> listaADevolver;
 
     private void promediar() {
 
@@ -29,7 +29,8 @@ public class Mayor_Tiempo_Cierre {
 
                 for (int j=0; j<this.listaADevolver.size();j++){
                     if(entidad==listaADevolver.get(j).entidad){
-                        listaNueva.get(listaNuevalen).cant+=listaADevolver.get(j).cant;
+
+                        listaNueva.get(listaNuevalen).cant+=this.listaADevolver.get(j).cant;
                         contador++;
                     }
                 }
@@ -59,15 +60,24 @@ public class Mayor_Tiempo_Cierre {
                 listaADevolverLen++;
             }
         }
-
+        for(int i=0;i<listaADevolver.size();i++){
+            System.out.print(listaADevolver.get(i).getEntidad().getNombre());
+            System.out.print("\n");
+        }
+        System.out.print("\n");
         this.promediar();
-
+        for(int i=0;i<listaADevolver.size();i++){
+            System.out.print(listaADevolver.get(i).getEntidad().getNombre());
+            System.out.print("\n");
+        }
+        System.out.print("\n");
         //Collections.sort(this.listaADevolver,(a, b)-> {a.getCant() < b.getCant()});
         listaADevolver = new SortEntidades().sortEntidadYentero(listaADevolver);
 
+
         for(int i=0;i<listaADevolver.size();i++){
-            listaADevolver.get(i).getEntidad().setRankingTiempoDeCierre(
-                    new Ranking(LocalDate.now(),i,"Tiempo De Cierre"));
+            listaADevolver.get(i).getEntidad().setRankingTiempoDeCierre(new Ranking(LocalDate.now(),i,"Tiempo De Cierre"));
+            System.out.print(listaADevolver.get(i).getEntidad().getNombre());System.out.print("\n");
         }
     }
 }
