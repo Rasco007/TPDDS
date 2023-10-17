@@ -13,12 +13,12 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "usuario")
 public class Usuario {
   @Id
   @GeneratedValue
   private int id;
-  @Column
+  @Column(name = "login")
   private String login;
   @Column
   private String password;

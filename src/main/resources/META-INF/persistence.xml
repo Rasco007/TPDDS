@@ -30,12 +30,22 @@
             <!-- TODO: hay q poner usuario y contraseña abajo -->
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="1234"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            <!-- CHATGPT-->
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+            
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <!-- CHATGPT-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.ejb.use_class_enhancer" value="true"/>
+            <property name="hibernate.id.optimizer.pooled.preferred" value="pooled-lo"/>
+
+
+
 
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="use_sql_comments" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
         </properties>
 
     </persistence-unit>

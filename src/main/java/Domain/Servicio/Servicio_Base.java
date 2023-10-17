@@ -19,8 +19,5 @@ public class Servicio_Base extends Servicio {
         setEstado_servicio(new Activo());
     }
 
-    //persistencia
-    @ManyToOne
-    @JoinColumn(name="pertenece_a",referencedColumnName = "id")
-    private Servicio_Compuesto pertenece_a;
+
 }

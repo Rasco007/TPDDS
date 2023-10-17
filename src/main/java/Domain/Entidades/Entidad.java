@@ -11,12 +11,10 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "entidad")
 public class Entidad {
-  public Entidad() {
+  public Entidad() {}
 
-
-  }
 
   @Id
   @GeneratedValue

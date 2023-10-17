@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Servicio {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.TABLE)//esto me lo rito chatgpt
   private int id;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "estado",referencedColumnName = "id")
@@ -30,4 +30,9 @@ public abstract class Servicio {
   @ManyToOne
   @JoinColumn(name = "establecimiento_id",referencedColumnName = "id")
   private Establecimiento establecimiento;
+
+  //persistencia
+  @ManyToOne
+  @JoinColumn(name="pertenece_a",referencedColumnName = "id")
+  private Servicio_Compuesto pertenece_a;
 }
