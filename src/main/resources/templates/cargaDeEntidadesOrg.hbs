@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal || www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>TPA DDS</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/js/bootstrap.bundle.min.js"> </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="container-fluid">
+
+    <div class="row">
+    <nav class="navbar" style="padding: 20px;">
+      <div class="logo_item">
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        <img src="/images/logo.png" alt=""></i>TPA DDS
+      </div>
+
+     
+
+      <div class="navbar_content">
+        <i class="bi bi-grid"></i>
+        <i class='bx bx-sun' id="darkLight"></i>
+        <i class='bx bx-bell' ></i>
+        <img src="/images/utn.png" alt="" class="profile" />
+      </div>
+    </nav>
+</div>
+    <!-- sidebar -->
+    <div class="row" style="height: 100vw;">
+    <nav class="sidebar col-2">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <div class="menu_title menu_dahsboard"></div>
+          <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">Incidentes</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <ul class="menu_items submenu">
+                    <a href="/aperturaIncidentes.hbs" class="nav_link sublink">Apertura de Incidentes</a>
+                    <a href="/cierreIncidentes.hbs" class="nav_link sublink">Cierre de Incidentes</a>
+                    <a href="/listadoIncidentes.hbs" class="nav_link sublink">Listado de Incidentes</a>
+                    <a href="#" class="nav_link sublink">Sugerencia de Revisión</a>
+                    <a href="/visualizacionRankings.hbs" class="nav_link sublink">Visualización de Rankings</a>
+            </ul>
+          </li>
+          <!-- end -->
+
+          <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bxs-magic-wand"></i>
+              </span>
+              <span class="navlink">Usuarios</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <ul class="menu_items submenu">
+              <a href="#" class="nav_link sublink">Administración de Usuarios</a>
+              <a href="#" class="nav_link sublink">Nav Sub Link</a>
+              <a href="#" class="nav_link sublink">Nav Sub Link</a>
+              <a href="#" class="nav_link sublink">Nav Sub Link</a>
+            </ul>
+          </li>
+          <!-- end -->
+        </ul>
+
+
+        
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content" >
+          <div class="bottom expand_sidebar">
+            <span> Expand</span>
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar">
+            <span> Collapse</span>
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+<div class="body-content col-10" style="margin-left: 20%;">
+    <br>
+    <h3 class="mb-5">Carga de Entidades o Organismos</h3>
+              
+    <form action="#">
+
+           
+            <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                     Tipo Entidad
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Entidad Prestadora</a></li>
+                      <li><a class="dropdown-item" href="#">Organismo de Control</a></li>
+                    </ul>
+                  </div>
+<br>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="typePasswordX-2">Nombre</label>
+      <input style="width: auto;" type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+    </div>
+
+    <div class="form-outline mb-4">
+            <label class="form-label" for="typePasswordX-2">Entidad</label>
+            <input style="width: auto;" type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+    </div>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
+</form>
+</div>
+</div>
+</div>
+    <!-- JavaScript -->
+    <script src="/js/script.js"></script>
+  </body>
+</html>
