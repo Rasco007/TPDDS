@@ -21,11 +21,11 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
 
     private boolean agregarEntidad() throws SQLException {
         Usuario usuario=new Usuario();
-        usuario.setLogin("boca");
-        usuario.setPassword("riverPlate1234");
+        usuario.setLogin("laAbuela");
+        usuario.setPassword("1234");
 
         Entidad entidad= new Entidad();
-       //entidad.setNombre("LineaB");
+      /* //entidad.setNombre("LineaB");
        // entidad.setReceptor_informacion_designado(usuario);
         Entidad_Prestadora entidad_prestadora=new Entidad_Prestadora();
         entidad_prestadora.setNombre("Metrovias");
@@ -38,21 +38,36 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
 
         //String jdbcUrl = "jdbc:mysql://your-mysql-server:3306/your-database?serverTimezone=America/Argentina/Buenos_Aires";
         //Connection connection = DriverManager.getConnection(jdbcUrl, "root", "1234");
-
+*/
 
         EntityTransaction tx = entityManager().getTransaction();
         tx.begin();
         entityManager().persist(usuario);
-        entityManager().persist(entidad);
+       // entityManager().persist(entidad);
        // entityManager().persist(entidad_prestadora);
         tx.commit();
         return true;
 
     }
 
+    public int validarInicioDeSecion(String login, String pass){
+      Usuario usuario = (Usuario) entityManager().createQuery("from usuario where nombre = :nombre").setParameter("nombre", login).getSingleResult();
+      if (usuario.getPassword()==pass){
+          return usuario.getId();
+      }
+      return -1;
+    }
+
     @Test
     public void testearBaseDeDatos() throws SQLException {
         Assertions.assertEquals(true,agregarEntidad());
     };
+
+
+
+    @Test
+    public void testearLoginConBase() throws SQLException{
+        Assertions.assertEquals(1,validarInicioDeSecion("boca","riverPlate1234"));
+    }
 
 }
