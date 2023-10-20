@@ -27,7 +27,7 @@ public class Comunidad {
   @Id
   @GeneratedValue
   private int id;
-  @Column(columnDefinition = "VARCHAR")
+  @Column(columnDefinition = "varchar(100)")
   private String nombre;
   @OneToMany(mappedBy = "comunidad_afectada")
   private List<Incidente> listado_incidentes;

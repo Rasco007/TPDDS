@@ -16,7 +16,7 @@ public class Establecimiento {
   @Id
   @GeneratedValue
   private int id;
-  @Column(columnDefinition = "varchar2(100)")
+  @Column(columnDefinition = "varchar(100)")
   private String nombre;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "ubicacion_id",referencedColumnName = "id")

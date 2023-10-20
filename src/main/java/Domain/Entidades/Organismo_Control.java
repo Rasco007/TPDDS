@@ -15,10 +15,11 @@ public class Organismo_Control {
     @Id
     @GeneratedValue
     private int id;
-    @Column(columnDefinition = "varchar2(100)")
+    @Column(columnDefinition = "varchar(100)")
     private String nombre;
     @ManyToMany
-    @JoinTable(name = "organismo_entidad",joinColumns = @JoinColumn(name = "organismo_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "entidad_id",referencedColumnName = "id"))
+    @JoinTable(name = "organismo_entidad",joinColumns = @JoinColumn(name = "organismo_id",referencedColumnName = "id"),
+                                     inverseJoinColumns = @JoinColumn(name = "entidad_id",referencedColumnName = "id"))
     private List<Entidad> entidades;
     @Transient
     private List<Servicio> servicios;

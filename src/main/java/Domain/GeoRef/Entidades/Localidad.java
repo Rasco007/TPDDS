@@ -14,7 +14,7 @@ public class Localidad {
     @Id
     @GeneratedValue
     private int id;
-    @Column(columnDefinition = "varchar2(100)")
+    @Column(columnDefinition = "varchar(100)")
     public String nombre;
     @OneToOne
     @JoinColumn(name = "centroide",referencedColumnName = "id")

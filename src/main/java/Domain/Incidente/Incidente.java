@@ -30,7 +30,7 @@ public class Incidente {
     private Timestamp fecha_hora_de_inicio;
     @Column
     private Timestamp Fecha_Hora_de_cierre;
-    @Column(columnDefinition = "varchar2(100)")
+    @Column(columnDefinition = "varchar(100)")
     private String observaciones;
     @Column
     private Boolean resuelto;

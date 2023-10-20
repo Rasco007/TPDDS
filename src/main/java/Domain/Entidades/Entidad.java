@@ -28,7 +28,7 @@ public class Entidad {
   private Usuario receptor_informacion_designado;
   @OneToMany(mappedBy = "entidad")
   private List<Establecimiento> sucursales;
-  @Column(columnDefinition = "varchar2(100)")
+  @Column(columnDefinition = "varchar(100)")
   private String nombre;
 
   //rankings

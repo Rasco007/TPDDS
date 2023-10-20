@@ -83,4 +83,7 @@ public class Perfil {
       }
 
   }
+
+  public Perfil() {
+  }
 }

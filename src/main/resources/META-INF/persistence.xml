@@ -34,11 +34,11 @@
             <property name="hibernate.id.new_generator_mappings" value="false"/>
             
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-            <!-- CHATGPT-->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.ejb.use_class_enhancer" value="true"/>
-            <property name="hibernate.id.optimizer.pooled.preferred" value="pooled-lo"/>
+            <!-- CHATGPT  Estos de aca los saque y no me cambio mucho :)
 
+            <property name="hibernate.ejb.use_class_enhancer" value="true"/>
+            <property name="hibernate.id.optimizer.pooled.preferred" value="pooled-lo"/>-->
 
 
 

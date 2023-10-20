@@ -21,7 +21,7 @@ public abstract class Servicio {
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "estado",referencedColumnName = "id")
   private Estado_Servicio estado_servicio;
-  @Column(columnDefinition = "varchar2(100)")
+  @Column(columnDefinition = "varchar(100)")
   private String descripcion;
   @ManyToMany
   @JoinTable(name = "usuario_servicio",joinColumns = @JoinColumn(name = "servicio",referencedColumnName = "id")

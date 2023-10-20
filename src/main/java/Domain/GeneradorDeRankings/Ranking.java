@@ -22,7 +22,7 @@ public class Ranking {
 
     @Column
     private int posicion;
-    @Column(columnDefinition = "varchar2(100)")
+    @Column(columnDefinition = "varchar(100)")
     private String tipoDeRanking;
 
     public Ranking(LocalDate semana, int posicion, String tipoDeRanking) {

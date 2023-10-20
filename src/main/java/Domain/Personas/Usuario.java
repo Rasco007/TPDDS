@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 @Getter
@@ -15,6 +16,10 @@ import java.util.Set;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+  public Usuario() {
+    this.roles=new ArrayList<Rol>();
+  }
+
   @Id
   @GeneratedValue
   private int id;
@@ -22,7 +27,7 @@ public class Usuario {
   private String login;
   @Column
   private String password;
-  @OneToOne
+  @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "perfil_id",referencedColumnName = "id")
   private Perfil perfil;
   @ManyToMany

@@ -8,6 +8,6 @@ public class Provincia {
   @Id
   @GeneratedValue
   public int id;
-  @Column(name = "varchar2(100)")
+  @Column(name = "varchar(100)")
   public String nombre;
 }
