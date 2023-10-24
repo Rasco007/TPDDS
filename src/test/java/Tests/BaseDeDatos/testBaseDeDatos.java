@@ -54,19 +54,6 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
     public int validarInicioDeSecion(String login, String pass){
         String qery ="SELECT u FROM Usuario u Where u.login = :x";
         Usuario usuario = (Usuario) entityManager().createQuery(qery, Usuario.class).setParameter("x",login).getSingleResult();
-        System.out.print("%");
-        System.out.print(usuario.getLogin());
-        System.out.print("%");
-        System.out.print("\n");
-        System.out.print("%");
-        System.out.print(usuario.getPassword());
-        System.out.print("%");
-        System.out.print("\n");
-        System.out.print("%");
-        System.out.print(usuario.getId());
-        System.out.print("%");
-        System.out.print("\n");
-
 
       if (usuario.getPassword().equals(pass)){
           return usuario.getId();
