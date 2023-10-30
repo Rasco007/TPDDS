@@ -44,7 +44,7 @@ public class RepoEntidad {
     public void remove(Entity prod) {
 
         for (Entity x :  this.entidades ) {
-            if (!(x.getId() == (prod.getId()))) {
+            if ((x.getId() == (prod.getId()))) {
                 this.entidades.add(x);
             }
         }

@@ -103,28 +103,16 @@
 <div class="body-content col-10" style="margin-left: 20%;">
     <br>
     <h3 class="mb-5">Cierre de Incidentes</h3>
-              
-    <form action="#">
-    <div class="form-outline mb-4">
-      <label class="form-label" for="typeEmailX-2">Establecimiento</label>
-      <input style="width: auto;" type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-    </div>
 
-    <div class="form-outline mb-4">
-      <label class="form-label" for="typePasswordX-2">Nombre del Servicio</label>
-      <input style="width: auto;" type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-    </div>
+    <form method="POST" action="/cierreIncidentes">
+        <div class="form-outline mb-4">
+            <label class="form-label" for="typeEmailX-2">ID</label>
+            <input name = "id_incidente" style="width: auto;" type="text" id="typeEmailX-2" class="form-control form-control-lg" />
+        </div>
 
-   
 
-    <div class="form-outline mb-4">
-            <label class="form-label" for="typePasswordX-2">Comunidad Afectada</label>
-            <input style="width: auto;" type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-    </div>
-
-    
-    <button class="btn btn-primary btn-lg btn-block" type="submit">Eliminar</button>
-</form>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
+    </form>
 </div>
 </div>
 </div>
