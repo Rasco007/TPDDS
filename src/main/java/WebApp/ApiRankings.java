@@ -5,15 +5,17 @@ import Domain.Grupo8.*;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import org.jetbrains.annotations.NotNull;
-//import org.springframework.http.HttpStatus;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.*;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util .*;
 
-//@RestController
-//@RequestMapping(value = "/api")
+@RestController
+@RequestMapping(value = "/api")
+
 public class ApiRankings implements Handler {
 
     private RepoEntidad repo;

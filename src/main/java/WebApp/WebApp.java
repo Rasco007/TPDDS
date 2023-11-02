@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.util.function.Consumer;
 
 import Domain.Grupo8.Incident;
-//import com.github.jknack.handlebars.Handlebars;
-//import com.github.jknack.handlebars.Template;
+
+import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Template;
 
 import io.javalin.Javalin;
 import io.javalin.config.JavalinConfig;
@@ -20,17 +21,31 @@ public class WebApp {
         initTemplateEngine();
 
         RepoEntidad repo = new RepoEntidad();
+
+        RepoIncidente repoIncidente = new RepoIncidente();
+
         Integer port = Integer.parseInt(System.getProperty("port", "8080"));
         Javalin app = Javalin.create(config()).start(port);
+        //INICIO
         app.get("/", ctx -> ctx.render("home.hbs"));
 
+        //API GRUPO 18
         app.get("/visualizacionRankings", (Handler) new ApiRankings(repo));
 
+        //FLUJO DE PAGINA WEB
         app.get("/aperturaIncidentes", ctx -> ctx.render("aperturaIncidentes.hbs"));
         app.get("/cierreIncidentes", ctx -> ctx.render("cierreIncidentes.hbs"));
         app.get("/listadoIncidentes", ctx -> ctx.render("listadoIncidentes.hbs"));
         app.get("/cargaDeEntidadesOrg", ctx -> ctx.render("cargaDeEntidadesOrg.hbs"));
 
+
+        //ALTA DE INCIDENTES
+        app.post("/aperturaIncidentes", new AltaIncidenteController(repoIncidente));
+        app.post("/cierreIncidentes", new CierreIncidenteController(repoIncidente));
+
+
+        //API NUESTRA
+        app.get("/api/incidentes", new ListaIncidentes(repoIncidente));
         //app.post("/api/productos", new AltaProductoController(repo));
         //app.get("/api/productos", new ListaProductoController(repo));
 
@@ -43,7 +58,8 @@ public class WebApp {
     }
 
     private static void initTemplateEngine() {
-       /* JavalinRenderer.register(
+
+        JavalinRenderer.register(
                 (path, model, context) -> { // Función que renderiza el template
                     Handlebars handlebars = new Handlebars();
                     Template template = null;
@@ -57,7 +73,8 @@ public class WebApp {
                         return "No se encuentra la página indicada...";
                     }
                 }, ".hbs" // Extensión del archivo de template
-        );*/
+        );
+
     }
 
     private static Consumer<JavalinConfig> config() {

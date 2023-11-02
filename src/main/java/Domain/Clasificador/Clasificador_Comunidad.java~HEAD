@@ -5,9 +5,9 @@ import Domain.Personas.Usuario;
 
 import java.util.List;
 
-public class ClasificadorDeComunidad {
+public class Clasificador_Comunidad {
 
-    public void clasificarComunidad(Comunidad comunidad){
+    public void clasificar_comunidad(Comunidad comunidad){
         float calificacion=0;
         int usuariosNoConfiables=0;
         List<Usuario> usuarios= (List<Usuario>) comunidad.getMiembros();
@@ -21,6 +21,6 @@ public class ClasificadorDeComunidad {
         comunidad.cambiar_confianza((float) (0.2*usuariosNoConfiables));
     }
 
-    public ClasificadorDeComunidad() {
+    public Clasificador_Comunidad() {
     }
 }

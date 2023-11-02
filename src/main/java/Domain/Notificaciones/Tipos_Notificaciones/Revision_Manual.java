@@ -2,6 +2,7 @@ package Domain.Notificaciones.Tipos_Notificaciones;
 
 import Domain.Personas.Usuario;
 import Domain.Incidente.Incidente;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +15,8 @@ public class Revision_Manual implements Notificacion_Builder {
 
 
     @Override
-    public Notificacion_Builder agregar_usuarios_a_notificar(Set<Usuario> usuarios_a_notificar) {
-        notificacion.setUsuario_a_notificar(usuarios_a_notificar);
+    public Notificacion_Builder agregar_usuarios_a_notificar(List<Usuario> usuarios_a_notificar) {
+        notificacion.setUsuario_a_notificar((Set<Usuario>) usuarios_a_notificar);
         return this;
     }
 

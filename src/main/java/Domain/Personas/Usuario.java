@@ -2,8 +2,11 @@ package Domain.Personas;
 
 import Domain.Entidades.Entidad;
 import Domain.GeoRef.Entidades.Centroide;
-import Domain.GeoRef.Servicio;
+//import Domain.GeoRef.Servicio;
+import Domain.Servicio.Servicio;
 import Domain.Incidente.Incidente;
+import java.io.IOException;
+import javax.mail.MessagingException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,9 +55,15 @@ public class Usuario {
 
 
 
-  public Incidente cargar_nuevo_incidente(Comunidad comunidad){
-    return new Incidente();
-  };
 
-  public void cerrar_incidente(Incidente incidente){};
+  public void cargar_nuevo_incidente(Comunidad comunidad, Servicio servicio, String observaciones) throws MessagingException, IOException {
+    Incidente incidente = new Incidente(servicio, observaciones, comunidad);
+    incidente.crear_incidente((List<Usuario>) comunidad.getMiembros());
+    comunidad.getListado_incidentes().add(incidente);
+  }
+
+  public void cerrar_incidente(Incidente incidente, Comunidad comunidad) throws MessagingException, IOException {
+    incidente.cerrar_incidente((List<Usuario>) comunidad.getMiembros());
+    comunidad.getListado_incidentes().remove(incidente);
+  }
 }

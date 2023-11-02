@@ -22,7 +22,13 @@ public class AltaIncidenteController implements Handler {
         Incident prod = new Incident(ctx.formParam("descripcion"),
                 tiempoResolucion) ;
         this.repo.add(prod);
-        ctx.redirect("/productos");
+
+        //ctx.redirect("/productos"); -- COMENTADO
+        //ctx.render("aperturaIncidentes.hbs", "Agregado");
+
+        //ctx.result("Agregado");
+        ctx.redirect("/aperturaIncidentes");
+
 
     }
 

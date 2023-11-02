@@ -65,7 +65,7 @@ public class Comunidad {
   public void cambiar_confianza(float cambio){
     puntos_confianza+=cambio;
   }
-  public String getGradoDeConfianza(){
+  public String get_grado_confianza(){
     if(this.puntos_confianza<2){
       return "No confiable.";
     } else if (this.puntos_confianza<=3) {

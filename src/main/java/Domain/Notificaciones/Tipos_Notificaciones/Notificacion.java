@@ -2,6 +2,7 @@ package Domain.Notificaciones.Tipos_Notificaciones;
 
 import Domain.Personas.Perfil;
 import Domain.Personas.Usuario;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,7 @@ public class Notificacion {
             joinColumns = @JoinColumn(name = "noficacion",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "usuario",referencedColumnName = "id"))
     private Set<Usuario> usuario_a_notificar;
+
     private String mensaje;
     private LocalDate horario_Notificacion;
     private String asunto;

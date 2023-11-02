@@ -37,6 +37,10 @@ public class RepoIncidente {
         for (Incident x :  this.incidentes ) {
             if (!(x.getId() == (prod.getId()))) {
                 this.incidentes.add(x);
+
+            }else {
+                this.incidentes.remove(x);
+
             }
         }
     }
@@ -56,7 +60,8 @@ public class RepoIncidente {
     public Incident findById(Long id) {
         Incident result = null;
         for (Incident x : this.incidentes) {
-            if (!(x.getId()== id)) {
+
+            if ((x.getId()== id)) {
                 result = x;
                 break;
             }

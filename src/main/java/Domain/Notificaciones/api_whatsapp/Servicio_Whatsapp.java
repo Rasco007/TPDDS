@@ -19,14 +19,14 @@ public class Servicio_Whatsapp {
         return instancia;
     }
 
-    public static void enviarMensaje(String telefono, String mensajeANotificar, String asunto){
+    public static void enviarMensaje(String telefono, String mensaje_a_Notificar, String asunto){
         Twilio.init(Whatsapp_Config.ACCOUNT_SID, Whatsapp_Config.AUTH_TOKEN);
 
-        mensaje = mensajeANotificar;
+        mensaje = mensaje_a_Notificar;
 
         Message message = Message.creator(
-                        new PhoneNumber("whatsapp:" + telefono),
-                        new PhoneNumber("whatsapp:+17605765980"),
+                        new com.twilio.type.PhoneNumber("whatsapp:" + telefono),
+                        new com.twilio.type.PhoneNumber(Whatsapp_Config.numeroDeEnvio),
                         "Asunto: " + asunto + "\n" + mensaje)
                 .create();
 
