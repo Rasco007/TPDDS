@@ -13,7 +13,7 @@ import java.util.Set;
 public class Notificacion_Data_Cierre implements Notificacion_Builder {
     Notificacion notificacion = new Notificacion("Cierre de incidente");;
     @Override
-    public Notificacion_Builder agregar_usuarios_a_notificar(List<Usuario> usuarios_a_notificar) {
+    public Notificacion_Builder agregar_usuarios_a_notificar(Set<Usuario> usuarios_a_notificar) {
         notificacion.setUsuario_a_notificar((Set<Usuario>) usuarios_a_notificar);
         return this;
     }

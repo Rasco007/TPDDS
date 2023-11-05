@@ -57,13 +57,14 @@ public class Usuario {
 
 
   public void cargar_nuevo_incidente(Comunidad comunidad, Servicio servicio, String observaciones) throws MessagingException, IOException {
-    Incidente incidente = new Incidente(servicio, observaciones, comunidad);
+    /*Incidente incidente = new Incidente(servicio, observaciones, comunidad);
     incidente.crear_incidente((List<Usuario>) comunidad.getMiembros());
-    comunidad.getListado_incidentes().add(incidente);
+    comunidad.getListado_incidentes().add(incidente);*/
+
   }
 
   public void cerrar_incidente(Incidente incidente, Comunidad comunidad) throws MessagingException, IOException {
-    incidente.cerrar_incidente((List<Usuario>) comunidad.getMiembros());
-    comunidad.getListado_incidentes().remove(incidente);
+    /*incidente.cerrar_incidente((List<Usuario>) comunidad.getMiembros());
+    comunidad.getListado_incidentes().remove(incidente);*/
   }
 }

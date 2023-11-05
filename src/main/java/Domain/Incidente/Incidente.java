@@ -61,7 +61,7 @@ public class Incidente {
     @ManyToOne
     @JoinColumn(name = "generador_semanal",referencedColumnName = "id")
     private Generador_Rankings generadorSemanal;
-    private Notificacion_Builder notificacionAbrir = new Notificacion_Data();
+    /*private Notificacion_Builder notificacionAbrir = new Notificacion_Data();
     private Notificacion_Builder notificacionCerrar = new Notificacion_Data_Cierre();
     public Incidente(Servicio servicio_afectado, String observaciones, Comunidad comunidad_afectada){
         this.servicio_afectado = servicio_afectado;
@@ -86,6 +86,6 @@ public class Incidente {
         Notificacion data = notificacionAbrir.agregar_usuarios_a_notificar(miembros_notificar)
             .agregar_mensaje(this).construir();
         Notificador.instancia().notificar(data);
-    }
+    }*/
 }
 

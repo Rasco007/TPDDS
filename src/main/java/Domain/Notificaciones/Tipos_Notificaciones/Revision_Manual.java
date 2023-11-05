@@ -15,7 +15,7 @@ public class Revision_Manual implements Notificacion_Builder {
 
 
     @Override
-    public Notificacion_Builder agregar_usuarios_a_notificar(List<Usuario> usuarios_a_notificar) {
+    public Notificacion_Builder agregar_usuarios_a_notificar(Set<Usuario> usuarios_a_notificar) {
         notificacion.setUsuario_a_notificar((Set<Usuario>) usuarios_a_notificar);
         return this;
     }
