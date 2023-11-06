@@ -3,14 +3,22 @@ package Tests.BaseDeDatos;
 import Controllers.DBControllers.DBUsuarioController;
 import Domain.Entidades.Entidad;
 import Domain.Entidades.Entidad_Prestadora;
+import Domain.Entidades.Establecimiento;
+import Domain.Incidente.Incidente;
 import Domain.Personas.Perfil;
 import Domain.Personas.Usuario;
+import Domain.Servicio.Estados.Activo;
+import Domain.Servicio.Estados.Estado_Servicio;
+import Domain.Servicio.Servicio;
+import Domain.Servicio.Servicio_Base;
+import Domain.Servicio.Servicio_Compuesto;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.swing.*;
 import java.sql.Connection;
@@ -29,6 +37,7 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
         Entidad entidad= new Entidad();
         entidad.setNombre("LineaB");
         entidad.setReceptor_informacion_designado(usuario);
+
         Entidad_Prestadora entidad_prestadora=new Entidad_Prestadora();
         entidad_prestadora.setNombre("Metrovias");
         List<Entidad> entidades=new ArrayList<Entidad>();
@@ -38,18 +47,65 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
         prestadoras.add(entidad_prestadora);
         entidad.setPrestadoras(prestadoras);
 
+       /* //Nose cómo crear un servicio xq necesita de un establecimiento y un establecimiento necesita de un servicio. Nose cual crear primero
+        List<Usuario> usuarios=new ArrayList<Usuario>();
+        usuarios.add(usuario);
 
-
+        */
 
         EntityTransaction tx = entityManager().getTransaction();
         tx.begin();
         entityManager().persist(usuario);
         entityManager().persist(entidad);
         entityManager().persist(entidad_prestadora);
+        /*entityManager().persist(servicio);
+        entityManager().persist(establecimiento1);*/
+
+
         tx.commit();
         return true;
 
     }
+
+    public boolean crear_servicios(){
+        Entidad lineaA=new Entidad();
+        lineaA.setNombre("linea A");
+
+        Establecimiento miserere=new Establecimiento();
+        miserere.setNombre("plaza miserere");
+        miserere.setEntidad(lineaA);
+
+
+        Servicio_Base banioHombresMiserere= new Servicio_Base();
+        banioHombresMiserere.setEstablecimiento(miserere);
+
+
+        Servicio_Base banioMujeresMiserere= new Servicio_Base();
+        banioMujeresMiserere.setEstablecimiento(miserere);
+
+
+        Servicio_Compuesto baniosMiserere=new Servicio_Compuesto();
+        baniosMiserere.setEstablecimiento(miserere);
+        baniosMiserere.agregar(banioHombresMiserere);
+        baniosMiserere.agregar(banioMujeresMiserere);
+
+
+        Servicio_Base escalerasMiserere=new Servicio_Base();
+        escalerasMiserere.setEstablecimiento(miserere);
+
+        EntityTransaction tx = entityManager().getTransaction();
+        tx.begin();
+        entityManager().persist(lineaA);
+        entityManager().persist(miserere);
+        entityManager().persist(banioHombresMiserere);
+        entityManager().persist(baniosMiserere);
+        entityManager().persist(banioMujeresMiserere);
+        entityManager().persist(escalerasMiserere);
+        tx.commit();
+
+        return true;
+    }
+
 
     public int validarInicioDeSecion(String login, String pass){
         String qery ="SELECT u FROM Usuario u Where u.login = :x";
@@ -88,7 +144,40 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
         Assertions.assertEquals(true,agregarEntidad());
     };
 
+    @Test
+    public void servicios() throws SQLException{
+        Assertions.assertTrue(crear_servicios());
+    }
 
+    @Test
+    public void testearAperturaIncidente() throws SQLException {
+        String query = "SELECT e FROM Incidente e";
+        Query hibernateQuery = entityManager().createQuery(query);
+
+        List<Incidente> listaIncidentes = hibernateQuery.getResultList();
+
+        for (Incidente incidente : listaIncidentes) {
+            System.out.println(incidente.getId());
+            System.out.println(incidente.getObservaciones());
+            System.out.println(incidente.getFecha_hora_de_inicio());
+        }
+        //Assertions.assertEquals(true,agregarEntidad());
+    };
+
+    @Test
+    public void testearServicios() throws SQLException {
+        String query = "SELECT e FROM Servicio_Base e";
+        Query hibernateQuery = entityManager().createQuery(query);
+
+        List<Servicio_Base> listaServicios = hibernateQuery.getResultList();
+
+        for (Servicio_Base servicio : listaServicios) {
+            System.out.println(servicio.getId());
+            System.out.println(servicio.getEstado_servicio());
+            System.out.println(servicio.getDescripcion());
+        }
+        //Assertions.assertEquals(true,agregarEntidad());
+    };
 
     @Test
     public void testearLoginConBase() throws SQLException{

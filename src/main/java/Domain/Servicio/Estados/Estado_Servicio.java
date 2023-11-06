@@ -15,7 +15,7 @@ public abstract class Estado_Servicio {
   @Id
   @GeneratedValue
   private int id;
-  @Column(columnDefinition = "varchar2(100)")
+  @Column(columnDefinition = "varchar(100)")
   private String descripcion;
 
   public void realizar_mantenimiento() {
