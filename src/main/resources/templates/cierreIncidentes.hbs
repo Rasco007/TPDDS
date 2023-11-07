@@ -103,7 +103,13 @@
 <div class="body-content col-10" style="margin-left: 20%;">
     <br>
     <h3 class="mb-5">Cierre de Incidentes</h3>
+    {{#if exitoMensaje}}
+        <div class="mb-5 exito-mensaje">{{exitoMensaje}}</div>
+    {{/if}}
 
+    {{#if errorMensaje}}
+        <div class="error-mensaje">{{errorMensaje}}</div>
+    {{/if}}
 
     <form method="POST" action="/cierreIncidentes">
         <div class="form-outline mb-4">

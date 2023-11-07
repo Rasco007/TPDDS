@@ -35,17 +35,17 @@ public class WebApp {
         //FLUJO DE PAGINA WEB
         app.get("/aperturaIncidentes", ctx -> ctx.render("aperturaIncidentes.hbs"));
         app.get("/cierreIncidentes", ctx -> ctx.render("cierreIncidentes.hbs"));
-        app.get("/listadoIncidentes", ctx -> ctx.render("listadoIncidentes.hbs"));
+       // app.get("/listadoIncidentes", ctx -> ctx.render("listadoIncidentes.hbs"));
         app.get("/cargaDeEntidadesOrg", ctx -> ctx.render("cargaDeEntidadesOrg.hbs"));
 
 
         //ALTA DE INCIDENTES
-        app.post("/aperturaIncidentes", new AltaIncidenteController(repoIncidente));
-        app.post("/cierreIncidentes", new CierreIncidenteController(repoIncidente));
+        app.post("/aperturaIncidentes", new AltaIncidenteController());
+        app.post("/cierreIncidentes", new CierreIncidenteController());
 
 
         //API NUESTRA
-        app.get("/api/incidentes", new ListaIncidentes(repoIncidente));
+        app.get("/listadoIncidentes", new ListaIncidentes());
         //app.post("/api/productos", new AltaProductoController(repo));
         //app.get("/api/productos", new ListaProductoController(repo));
 

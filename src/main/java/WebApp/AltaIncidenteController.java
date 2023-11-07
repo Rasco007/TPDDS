@@ -8,33 +8,25 @@ import Domain.Personas.Usuario;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
+import io.javalin.http.HttpStatus;
 
 
 import javax.persistence.EntityTransaction;
 
 public class AltaIncidenteController implements Handler, WithSimplePersistenceUnit {
 
-    private RepoIncidente repo;
 
-    public AltaIncidenteController(RepoIncidente repo) {
+    public AltaIncidenteController() {
         super();
-        this.repo = repo;
     }
 
     @Override
     public void handle(Context ctx) throws Exception {
 
-        /*String tiempoResolucionStr = ctx.formParam("tiempoResolucion");
-        Integer tiempoResolucion = Integer.parseInt(tiempoResolucionStr);
-
-        Incident prod = new Incident(ctx.formParam("descripcion"),
-                tiempoResolucion) ;
-        this.repo.add(prod);*/
 
         Incidente incidente=new Incidente();
-        //incidente.setServicio_afectado(1);
+        //incidente.setServicio_afectado(1); //TODO - agregar un servicio
         incidente.setObservaciones(ctx.formParam("descripcion"));
-
 
 
         EntityTransaction tx = entityManager().getTransaction();
@@ -43,13 +35,18 @@ public class AltaIncidenteController implements Handler, WithSimplePersistenceUn
 
         tx.commit();
 
+        HttpStatus codigoRespuesta = ctx.status();
+
+        if(codigoRespuesta == HttpStatus.OK){
+            ctx.render("aperturaIncidentes.hbs", Map.of("exitoMensaje", "El incidente se ha creado exitosamente."));
+
+        }else{
+            ctx.render("aperturaIncidentes.hbs", Map.of("errorMensaje", "El incidente NO se ha podido crear."));
+
+        }
 
 
-        //ctx.redirect("/productos"); -- COMENTADO
-        //ctx.render("aperturaIncidentes.hbs", "Agregado");
 
-        //ctx.result("Agregado");
-        ctx.redirect("/aperturaIncidentes");
 
 
     }

@@ -104,7 +104,13 @@
     <br>
     <h3 class="mb-5">Apertura de Incidentes</h3>
 
-    <h3 class="mb-5">{{mensajeExito}}</h3>
+    {{#if exitoMensaje}}
+        <div class="mb-5 exito-mensaje">{{exitoMensaje}}</div>
+    {{/if}}
+
+    {{#if errorMensaje}}
+        <div class="error-mensaje">{{errorMensaje}}</div>
+    {{/if}}
 
     <form method="POST" action="/aperturaIncidentes">
     <div class="form-outline mb-4">
@@ -112,10 +118,10 @@
       <input name = "descripcion" style="width: auto;" type="text" id="typeEmailX-2" class="form-control form-control-lg" />
     </div>
 
-    <div class="form-outline mb-4">
+    <!--<div class="form-outline mb-4">
       <label class="form-label" for="typePasswordX-2">Tiempo de Resolución</label>
       <input name = "tiempoResolucion" style="width: auto;" type="text" id="typePasswordX-2" class="form-control form-control-lg" />
-    </div>
+    </div>-->
     <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
 </form>
 </div>
