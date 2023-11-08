@@ -112,15 +112,17 @@
 
 
     <form method="POST" action="/adminUsuario">
+{{#each usuarios}}
 
         <div class="form-outline mb-4">
             <label class="form-label" for="login">Usuario</label>
-            <input name = "login" style="width: auto;" type="text" id="login" value="{{usuario.login}}" class="form-control form-control-lg" />
+            <input name = "login" style="width: auto;" type="text" id="login" value="{{login}}" class="form-control form-control-lg" />
         </div>
         <div class="form-outline mb-4">
             <label class="form-label" for="pass">Password</label>
-            <input name = "pass" style="width: auto;" type="text" id="pass" value="{{usuario.pass}}"class="form-control form-control-lg" />
+            <input name = "pass" style="width: auto;" type="text" id="pass" value="{{pass}}"class="form-control form-control-lg" />
         </div>
+    {{/each}}
 
     <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
 </form>

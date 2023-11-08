@@ -45,6 +45,8 @@ public class WebApp {
         //ALTA DE INCIDENTES
         app.post("/aperturaIncidentes", new AltaIncidenteController());
         app.post("/cierreIncidentes", new CierreIncidenteController());
+        app.post("/adminUsuario", new AdminUsuariosController());
+
         app.post("/home", new LoginController());
 
 

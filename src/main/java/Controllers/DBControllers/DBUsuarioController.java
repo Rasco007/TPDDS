@@ -4,7 +4,10 @@ import Domain.Personas.Usuario;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import org.jetbrains.annotations.NotNull;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.util.List;
 
 public class DBUsuarioController implements WithSimplePersistenceUnit {
@@ -48,6 +51,24 @@ public class DBUsuarioController implements WithSimplePersistenceUnit {
         if (usuario.getPassword().equals(pass)){
             return usuario.getId();
         }else{
+            return -1;
+        }
+    }
+
+    public int modificarUsuario(int id, String nuevoNombre, String pass){
+
+
+        EntityTransaction tx = entityManager().getTransaction();
+        tx.begin();
+
+        Usuario usuario = entityManager().find(Usuario.class, id);
+        if (usuario != null) {
+            usuario.setLogin(nuevoNombre);
+            usuario.setPassword(pass);
+            entityManager().persist(usuario);
+            tx.commit();
+            return 1;
+        } else {
             return -1;
         }
     }
