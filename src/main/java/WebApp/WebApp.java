@@ -27,25 +27,28 @@ public class WebApp {
         Integer port = Integer.parseInt(System.getProperty("port", "8080"));
         Javalin app = Javalin.create(config()).start(port);
         //INICIO
-        app.get("/", ctx -> ctx.render("home.hbs"));
+        app.get("/", ctx -> ctx.render("index.hbs"));
 
         //API GRUPO 18
         app.get("/visualizacionRankings", (Handler) new ApiRankings(repo));
 
         //FLUJO DE PAGINA WEB
+        app.get("/home", ctx -> ctx.render("home.hbs"));
         app.get("/aperturaIncidentes", ctx -> ctx.render("aperturaIncidentes.hbs"));
         app.get("/cierreIncidentes", ctx -> ctx.render("cierreIncidentes.hbs"));
-       // app.get("/listadoIncidentes", ctx -> ctx.render("listadoIncidentes.hbs"));
+        app.get("/adminUsuario", new AdminUsuariosController());
+        app.get("/listadoIncidentes", new ListaIncidentes());
+
         app.get("/cargaDeEntidadesOrg", ctx -> ctx.render("cargaDeEntidadesOrg.hbs"));
 
 
         //ALTA DE INCIDENTES
         app.post("/aperturaIncidentes", new AltaIncidenteController());
         app.post("/cierreIncidentes", new CierreIncidenteController());
+        app.post("/home", new LoginController());
 
 
         //API NUESTRA
-        app.get("/listadoIncidentes", new ListaIncidentes());
         //app.post("/api/productos", new AltaProductoController(repo));
         //app.get("/api/productos", new ListaProductoController(repo));
 

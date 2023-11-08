@@ -41,5 +41,15 @@ public class DBUsuarioController implements WithSimplePersistenceUnit {
     }
 
 
+    public int validarInicioDeSecion(String login, String pass){
+        String qery ="SELECT u FROM Usuario u Where u.login = :x and u.password = :y";
+        Usuario usuario = (Usuario) entityManager().createQuery(qery).setParameter("x",login).setParameter("y", pass).getSingleResult();
+
+        if (usuario.getPassword().equals(pass)){
+            return usuario.getId();
+        }else{
+            return -1;
+        }
+    }
 
 }
