@@ -13,7 +13,7 @@ public class Mas_Incidentes {
 
 
         for (int i=0;i<incidentes.size();i++){
-            this.contarEntidades(incidentes.get(i).getServicio_afectado().getEstablecimiento().getEntidad());
+            this.contarEntidades(incidentes.get(i).getEstablecimiento().getEntidad());
         }
         for(int i=0;i<listaADevolver.size();i++){
             System.out.print(listaADevolver.get(i).getEntidad().getNombre());System.out.print(listaADevolver.get(i).getCant());

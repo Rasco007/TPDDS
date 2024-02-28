@@ -15,8 +15,8 @@ public class Entidad_Prestadora {
   private int id;
   @Column(columnDefinition = "varchar(100)")
   private String nombre;
-  @ManyToMany
-  @JoinTable(name = "entidad_prestadora_entidad",joinColumns = @JoinColumn(name = "entidad_prestadora_id",referencedColumnName = "id"),
-                        inverseJoinColumns = @JoinColumn(name = "entidad_id",referencedColumnName = "id"))
-  private List<Entidad> entidades;
+
+  @ManyToOne
+  @JoinColumn(name = "entidad_id")
+  private Entidad entidad;
 }

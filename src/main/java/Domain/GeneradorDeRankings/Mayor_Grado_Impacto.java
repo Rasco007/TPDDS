@@ -19,8 +19,8 @@ public class Mayor_Grado_Impacto {
         long cantAfectados;
 
         for (int i=0;i<incidentes.size();i++){
-            cantAfectados=incidentes.get(i).getComunidad_afectada().getMiembros_afectados().size();
-            this.contarUsuariosAfectados(incidentes.get(i).getServicio_afectado().getEstablecimiento().getEntidad(),cantAfectados);
+            cantAfectados=incidentes.get(i).getComunidad_afectada().getMiembros().size();
+            this.contarUsuariosAfectados(incidentes.get(i).getEstablecimiento().getEntidad(),cantAfectados);
         }
 
         //Collections.sort(this.listaADevolver,(a, b)-> {a.getCant() < b.getCant()});

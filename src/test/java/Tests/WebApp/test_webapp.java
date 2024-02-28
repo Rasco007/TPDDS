@@ -1,16 +1,11 @@
 package Tests.WebApp;
 
 
-import Domain.CSV.CSV;
-import Domain.Entidades.Entidad;
-import Domain.Entidades.Organismo_Control;
 import Domain.Grupo8.Entity;
 import Domain.Grupo8.Incident;
-import WebApp.ApiRankings;
-import WebApp.RepoEntidad;
+import WebApp.RankingsController;
+import Domain.Grupo8.RepoEntidad;
 import io.javalin.Javalin;
-import io.javalin.http.HttpResponseException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -18,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.javalin.apibuilder.ApiBuilder.get;
-import static io.javalin.apibuilder.ApiBuilder.path;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class test_webapp {
 
@@ -45,9 +39,9 @@ public class test_webapp {
         Entity entidad1 = new Entity("Entidad 1", 10, ListaIncidentes1);
         Entity entidad2 =new Entity("Entidad 2", 15, ListaIncidentes2);
 
-        ApiRankings api = new ApiRankings(repo);
+        //RankingsController api = new RankingsController(repo);
 
-        System.out.println(api);
+        //System.out.println(api);
 
     }
     }

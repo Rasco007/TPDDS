@@ -1,4 +1,6 @@
 package Domain.Incidente;
+import Domain.Entidades.Entidad;
+import Domain.Entidades.Establecimiento;
 import Domain.GeneradorDeRankings.Generador_Rankings;
 import Domain.Personas.Comunidad;
 import Domain.Personas.Perfil;
@@ -27,6 +29,7 @@ public class Incidente {
     public Incidente() {
         fecha_hora_de_inicio= new Timestamp(System.currentTimeMillis());
         resuelto=false;
+        tiempo_de_resolucion=0;
     }
 
     @Id
@@ -39,8 +42,11 @@ public class Incidente {
     @Column
     private Timestamp fecha_hora_de_inicio;
     @Column
-    private Timestamp Fecha_Hora_de_cierre;
-    @Column(columnDefinition = "varchar(100)")
+    private Timestamp fecha_hora_de_cierre;
+    @Column
+    private long tiempo_de_resolucion;
+
+    @Column(columnDefinition = "varchar(200)")
 
     private String observaciones;
     @Column
@@ -56,6 +62,9 @@ public class Incidente {
     @JoinColumn(name = "usuario_finalizador",referencedColumnName = "id")
     private Perfil usuario_finalizador;
 
+    @ManyToOne
+    @JoinColumn(name="establecimiento_id",referencedColumnName = "id")
+    private Establecimiento establecimiento;
 
     //persistencia
     @ManyToOne

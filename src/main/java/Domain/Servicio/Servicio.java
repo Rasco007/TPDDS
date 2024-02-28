@@ -23,16 +23,16 @@ public abstract class Servicio {
   private Estado_Servicio estado_servicio;
   @Column(columnDefinition = "varchar(100)")
   private String descripcion;
+
+  /*
   @ManyToMany
   @JoinTable(name = "usuario_servicio",joinColumns = @JoinColumn(name = "servicio",referencedColumnName = "id")
                     ,inverseJoinColumns = @JoinColumn(name = "usuario",referencedColumnName = "id"))
-  private List<Usuario> usuarios_asociados;
-  @ManyToOne
-  @JoinColumn(name = "establecimiento_id",referencedColumnName = "id")
-  private Establecimiento establecimiento;
+  private List<Usuario> usuarios_asociados;*/
+
 
   //persistencia
   @ManyToOne
-  @JoinColumn(name="pertenece_a",referencedColumnName = "id")
+  @JoinColumn(name="pertenece_a",referencedColumnName = "id", nullable = true)
   private Servicio_Compuesto pertenece_a;
 }

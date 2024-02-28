@@ -37,21 +37,17 @@ public class Test_ranking_tiempo {
         establecimientos.add(miserere);
 
         Servicio_Base banioHombresMiserere= new Servicio_Base();
-        banioHombresMiserere.setEstablecimiento(miserere);
         servicios.add(banioHombresMiserere);
 
         Servicio_Base banioMujeresMiserere= new Servicio_Base();
-        banioMujeresMiserere.setEstablecimiento(miserere);
         servicios.add(banioMujeresMiserere);
 
         Servicio_Compuesto baniosMiserere=new Servicio_Compuesto();
-        baniosMiserere.setEstablecimiento(miserere);
         baniosMiserere.agregar(banioHombresMiserere);
         baniosMiserere.agregar(banioMujeresMiserere);
         servicios.add(baniosMiserere);
 
         Servicio_Base escalerasMiserere=new Servicio_Base();
-        escalerasMiserere.setEstablecimiento(miserere);
         servicios.add(escalerasMiserere);
 
         Establecimiento loria=new Establecimiento();
@@ -60,21 +56,17 @@ public class Test_ranking_tiempo {
         establecimientos.add(loria);
 
         Servicio_Base banioHombresLoria= new Servicio_Base();
-        banioHombresLoria.setEstablecimiento(loria);
         servicios.add(banioHombresLoria);
 
         Servicio_Base banioMujeresLoria= new Servicio_Base();
-        banioMujeresLoria.setEstablecimiento(loria);
         servicios.add(banioMujeresLoria);
 
         Servicio_Compuesto baniosLoria=new Servicio_Compuesto();
-        baniosLoria.setEstablecimiento(loria);
         baniosLoria.agregar(banioHombresLoria);
         baniosLoria.agregar(banioMujeresLoria);
         servicios.add(baniosLoria);
 
         Servicio_Base escalerasLoria=new Servicio_Base();
-        escalerasLoria.setEstablecimiento(loria);
         servicios.add(escalerasLoria);
 
 
@@ -92,21 +84,17 @@ public class Test_ranking_tiempo {
         establecimientos.add(jujuy);
 
         Servicio_Base banioHombresJujuy= new Servicio_Base();
-        banioHombresJujuy.setEstablecimiento(jujuy);
         servicios.add(banioHombresJujuy);
 
         Servicio_Base banioMujeresJujuy= new Servicio_Base();
-        banioMujeresJujuy.setEstablecimiento(jujuy);
         servicios.add(banioMujeresJujuy);
 
         Servicio_Compuesto baniosJujuy=new Servicio_Compuesto();
-        baniosJujuy.setEstablecimiento(jujuy);
         baniosJujuy.agregar(banioHombresJujuy);
         baniosJujuy.agregar(banioMujeresJujuy);
         servicios.add(baniosJujuy);
 
         Servicio_Base escalerasJujuy=new Servicio_Base();
-        escalerasJujuy.setEstablecimiento(jujuy);
         servicios.add(escalerasJujuy);
 
         Establecimiento bolivar=new Establecimiento();
@@ -115,21 +103,17 @@ public class Test_ranking_tiempo {
         establecimientos.add(bolivar);
 
         Servicio_Base banioHombresBolivar= new Servicio_Base();
-        banioHombresBolivar.setEstablecimiento(bolivar);
         servicios.add(banioHombresBolivar);
 
         Servicio_Base banioMujeresBolivar= new Servicio_Base();
-        banioMujeresBolivar.setEstablecimiento(bolivar);
         servicios.add(banioMujeresBolivar);
 
         Servicio_Compuesto baniosBolivar=new Servicio_Compuesto();
-        baniosBolivar.setEstablecimiento(bolivar);
         baniosBolivar.agregar(banioHombresBolivar);
         baniosBolivar.agregar(banioMujeresBolivar);
         servicios.add(baniosBolivar);
 
         Servicio_Base escalerasBolivar=new Servicio_Base();
-        escalerasBolivar.setEstablecimiento(bolivar);
         servicios.add(escalerasBolivar);
 
 
@@ -147,21 +131,17 @@ public class Test_ranking_tiempo {
         establecimientos.add(bancoCiudadBoedo);
 
         Servicio_Base banioHombresBancoCiudadBoedo= new Servicio_Base();
-        banioHombresBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         servicios.add(banioHombresBancoCiudadBoedo);
 
         Servicio_Base banioMujeresBancoCiudadBoedo= new Servicio_Base();
-        banioMujeresBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         servicios.add(banioMujeresBancoCiudadBoedo);
 
         Servicio_Compuesto baniosBancoCiudadBoedo=new Servicio_Compuesto();
-        baniosBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         baniosBancoCiudadBoedo.agregar(banioHombresBancoCiudadBoedo);
         baniosBancoCiudadBoedo.agregar(banioMujeresBancoCiudadBoedo);
         servicios.add(baniosBancoCiudadBoedo);
 
         Servicio_Base ascensorBancoCiudadBoedo=new Servicio_Base();
-        ascensorBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         servicios.add(ascensorBancoCiudadBoedo);
 
 
@@ -172,13 +152,13 @@ public class Test_ranking_tiempo {
         incidente1.setServicio_afectado(escalerasBolivar);
         incidente1.setResuelto(true);
         incidente1.setFecha_hora_de_inicio(genTimestamp(2023,8,2,13,30,30));
-        incidente1.setFecha_Hora_de_cierre(genTimestamp(2023,8,3,13,30,30));
+        incidente1.setFecha_hora_de_cierre(genTimestamp(2023,8,3,13,30,30));
 
         Incidente incidente2=new Incidente();
         incidente2.setServicio_afectado(escalerasBolivar);
         incidente2.setResuelto(true);
         incidente2.setFecha_hora_de_inicio(genTimestamp(2023,8,4,13,30,30));
-        incidente2.setFecha_Hora_de_cierre(genTimestamp(2023,8,5,13,30,30));
+        incidente2.setFecha_hora_de_cierre(genTimestamp(2023,8,5,13,30,30));
 
         Incidente incidente3=new Incidente();
         incidente3.setServicio_afectado(baniosBolivar);
@@ -187,7 +167,7 @@ public class Test_ranking_tiempo {
         incidente4.setServicio_afectado(escalerasJujuy);
         incidente4.setResuelto(true);
         incidente4.setFecha_hora_de_inicio(genTimestamp(2023,8,2,13,30,30));
-        incidente4.setFecha_Hora_de_cierre(genTimestamp(2023,8,3,13,30,30));
+        incidente4.setFecha_hora_de_cierre(genTimestamp(2023,8,3,13,30,30));
 
         Incidente incidente5=new Incidente();
         incidente5.setServicio_afectado(banioMujeresJujuy);
@@ -197,7 +177,7 @@ public class Test_ranking_tiempo {
         incidente6.setServicio_afectado(banioHombresLoria);
         incidente6.setResuelto(true);
         incidente6.setFecha_hora_de_inicio(genTimestamp(2023,8,2,13,30,30));
-        incidente6.setFecha_Hora_de_cierre(genTimestamp(2023,8,4,13,30,30));
+        incidente6.setFecha_hora_de_cierre(genTimestamp(2023,8,4,13,30,30));
 
         Incidente incidente7=new Incidente();
         incidente7.setServicio_afectado(escalerasLoria);
@@ -213,7 +193,7 @@ public class Test_ranking_tiempo {
         incidente10.setServicio_afectado(ascensorBancoCiudadBoedo);
         incidente10.setResuelto(true);
         incidente10.setFecha_hora_de_inicio(genTimestamp(2023,8,2,13,30,30));
-        incidente10.setFecha_Hora_de_cierre(genTimestamp(2023,8,6,13,30,30));
+        incidente10.setFecha_hora_de_cierre(genTimestamp(2023,8,6,13,30,30));
 
         Incidente incidente11=new Incidente();
         incidente11.setServicio_afectado(banioHombresBancoCiudadBoedo);
@@ -236,7 +216,7 @@ public class Test_ranking_tiempo {
 
         this.inicializar();
 
-        new Mayor_Tiempo_Cierre().generarRanking(incidentes);
+        //new Mayor_Tiempo_Cierre().generarRanking(incidentes);
         //LISTA: A,E,BANCO
         //CANT A:2    E:1  BANCO:4 dias
         //puestos 1    2    0

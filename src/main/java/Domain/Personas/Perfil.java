@@ -70,7 +70,7 @@ public class Perfil {
     }
   }
 
-  public void iniciarComunidades(){
+  /*public void iniciarComunidades(){
       for(int i=0;i<usuario.getComunidades_admin().size();i++){
         comunidades.add(usuario.getComunidades_admin().get(i));
       }
@@ -82,7 +82,7 @@ public class Perfil {
         comunidades.add(usuario.getComunidades_afectados().get(i));
       }
 
-  }
+  }*/
 
   public Perfil() {
   }

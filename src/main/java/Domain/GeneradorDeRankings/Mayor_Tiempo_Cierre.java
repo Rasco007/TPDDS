@@ -49,12 +49,12 @@ public class Mayor_Tiempo_Cierre {
         this.listaADevolver=new ArrayList<Entidad_Y_Entero>();
     }
 
-    public void generarRanking(List<Incidente> incidentes) {
+    /*public void generarRanking(List<Incidente> incidentes) {
         long tiempoDeCierre;
         int listaADevolverLen=0;
         for (int i=0;i<incidentes.size();i++) {
             if(incidentes.get(i).getResuelto()){
-                tiempoDeCierre = incidentes.get(i).getFecha_Hora_de_cierre().getTime() - incidentes.get(i).getFecha_hora_de_inicio().getTime();
+                tiempoDeCierre = incidentes.get(i).getFecha_hora_de_cierre().getTime() - incidentes.get(i).getFecha_hora_de_inicio().getTime();
                 this.listaADevolver.add(new Entidad_Y_Entero(incidentes.get(i).getServicio_afectado().getEstablecimiento().getEntidad()));
                 this.listaADevolver.get(listaADevolverLen).setCant(tiempoDeCierre);
                 listaADevolverLen++;
@@ -79,5 +79,5 @@ public class Mayor_Tiempo_Cierre {
             listaADevolver.get(i).getEntidad().setRankingTiempoDeCierre(new Ranking(LocalDate.now(),i,"Tiempo De Cierre"));
             System.out.print(listaADevolver.get(i).getEntidad().getNombre());System.out.print("\n");
         }
-    }
+    }*/
 }

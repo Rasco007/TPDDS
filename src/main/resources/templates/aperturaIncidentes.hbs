@@ -55,11 +55,43 @@
                     <a href="/cierreIncidentes" class="nav_link sublink">Cierre de Incidentes</a>
                     <a href="/listadoIncidentes" class="nav_link sublink">Listado de Incidentes</a>
                     <a href="/visualizacionRankings" class="nav_link sublink">Visualización de Rankings</a>
-                    <a href="/cargaDeEntidadesOrg" class="nav_link sublink">Carga entidades</a>
             </ul>
           </li>
           <!-- end -->
+            <!-- start -->
+            <li class="item">
+                <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-world"></i>
+              </span>
+                    <span class="navlink">Comunidades</span>
+                    <i class="bx bx-chevron-right arrow-left"></i>
+                </div>
 
+                <ul class="menu_items submenu">
+                    <a href="/listaComunidades" class="nav_link sublink">Lista de Comunidades</a>
+                    <a href="/altaComunidades" class="nav_link sublink">Alta de Comunidad</a>
+                    <a href="/cierreComunidad" class="nav_link sublink">Cierre de Comunidad</a>
+
+                </ul>
+            </li>
+            <!-- end -->
+            <!-- start -->
+            <li class="item">
+                <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+                    <span class="navlink">Entidades</span>
+                    <i class="bx bx-chevron-right arrow-left"></i>
+                </div>
+
+                <ul class="menu_items submenu">
+                    <a href="/altaEntidades" class="nav_link sublink">Alta de Entidades</a>
+                    <a href="/listaEntidades" class="nav_link sublink">Lista de Entidades</a>
+                </ul>
+            </li>
+            <!-- end -->
           <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
           <!-- start -->
           <li class="item">
@@ -110,7 +142,40 @@
     {{/if}}
 
     <form method="POST" action="/aperturaIncidentes">
+
+
+        <div class="form-outline mb-4">
+            <label class="form-label col-12" for="dropdown">Comunidad</label>
+            <select id="dropdown" name="dropdown" class=" dropdown btn btn-primary dropdown-toggle">
+                <option value="">Selecciona Comunidad...</option>
+                {{#each opcionesComunidades}}
+                    <option value="{{valorIdComu}}" name="dropdown" >{{valorComu}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label col-12" for="dropdown">Sucursal</label>
+            <select id="dropdown_sucursal" name="dropdown_sucursal" class=" dropdown btn btn-primary dropdown-toggle">
+                {{#each opcionesEstablecimientos}}
+                    <option value="{{valorId}}" name="dropdown_sucursal" >{{valor}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+
+        <div class="form-outline mb-4">
+            <label class="form-label col-12" for="dropdown">Servicio</label>
+            <select id="dropdown_servicio" name="dropdown_servicio" class=" dropdown btn btn-primary dropdown-toggle">
+                {{#each opcionesServicios}}
+                    <option value="{{valorIdServicio}}" name="dropdown_servicio" >{{valorServicio}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+
     <div class="form-outline mb-4">
+
       <label class="form-label" for="typeEmailX-2">Descripción</label>
       <input name = "descripcion" style="width: auto;" type="text" id="typeEmailX-2" class="form-control form-control-lg" />
     </div>
@@ -126,5 +191,46 @@
 </div>
     <!-- JavaScript -->
     <script src="/js/script.js"></script>
+    <script src="/js/jquery-3.7.1.js"></script>
+
+
+
+    <script>
+$(document).ready(function() {
+    $('#dropdown_sucursal').change(function() {
+        var opcionSeleccionada = $(this).val();
+        $.get("/dropServicio/" + opcionSeleccionada, function(data) {
+
+            var dropdown2 = $('#dropdown_servicio');
+            dropdown2.empty();
+            dropdown2.append('<option value="">Selecciona...</option>');
+            Object.keys(data).forEach(function(servicio) {
+              var nombre = servicio;
+               var id = data[servicio];
+                dropdown2.append('<option value="' + id + '">' + nombre + '</option>');
+            });
+        });
+    });
+
+    $('#dropdown').change(function() {
+    console.log("hola");
+        var opcionSeleccionada = $(this).val();
+        $.get("/dropSucursal/" + opcionSeleccionada, function(data) {
+            console.log("hola adentro");
+
+            var dropdown2 = $('#dropdown_sucursal');
+            dropdown2.empty();
+            dropdown2.append('<option value="">Selecciona...</option>');
+            Object.keys(data).forEach(function(sucursal) {
+
+            var nombre = sucursal;
+            var id = data[sucursal];
+            dropdown2.append('<option value="' + id + '">' + nombre + '</option>');
+            });
+        });
+    });
+
+});
+</script>
   </body>
 </html>

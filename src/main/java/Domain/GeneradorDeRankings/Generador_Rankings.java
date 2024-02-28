@@ -25,8 +25,8 @@ public class Generador_Rankings {
 
     public Ranking generarRanking(){
         new Mas_Incidentes().generarRanking(incidentesDeLaSemana);
-        new Mayor_Grado_Impacto().generarRanking(incidentesDeLaSemana);
-        new Mayor_Tiempo_Cierre().generarRanking(incidentesDeLaSemana);
+        //new Mayor_Grado_Impacto().generarRanking(incidentesDeLaSemana);
+        //new Mayor_Tiempo_Cierre().generarRanking(incidentesDeLaSemana);
         return null;
     }
 

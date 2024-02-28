@@ -1,14 +1,12 @@
 package WebApp;
 
 
-import Domain.Grupo8.Entity;
-import Domain.Grupo8.Incident;
+import Domain.Grupo8.RepoIncidente;
 import Domain.Incidente.Incidente;
+import Domain.Personas.Usuario;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-import io.javalin.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Query;
 import java.util.ArrayList;
@@ -33,22 +31,41 @@ public class ListaIncidentes implements Handler, WithSimplePersistenceUnit {
         Query hibernateQuery = entityManager().createQuery(query);
         List<Incidente> listaIncidentes = hibernateQuery.getResultList();
 
+        Usuario usuarioActual = ctx.sessionAttribute("usuario");
+        int usuarioId = usuarioActual.getId();
+        Usuario usuarioDB= entityManager().find(Usuario.class,usuarioId);
+
+
         //System.out.println(listaIncidentes);
         List<Map<String, Object>> result = new ArrayList<>();
 
         for (Incidente incidente :listaIncidentes) {
 
-            Map<String, Object> nuevoJson = new HashMap<>();
-            nuevoJson.put("id", incidente.getId());
-            nuevoJson.put("observaciones", incidente.getObservaciones());
-            nuevoJson.put("hora_de_inicio", incidente.getFecha_hora_de_inicio());
-            nuevoJson.put("hora_de_cierre", incidente.getFecha_Hora_de_cierre());
-            nuevoJson.put("resuelto", incidente.getResuelto());
+            if (incidente.getComunidad_afectada().estaElMiembro(usuarioDB)){
+                Map<String, Object> nuevoJson = new HashMap<>();
+                nuevoJson.put("id", incidente.getId());
+                nuevoJson.put("observaciones", incidente.getObservaciones());
+                nuevoJson.put("comunidad", incidente.getComunidad_afectada().getNombre());
+                nuevoJson.put("establecimiento", incidente.getEstablecimiento().getNombre());
 
-            result.add((Map<String, Object>) nuevoJson);
+                nuevoJson.put("hora_de_inicio", incidente.getFecha_hora_de_inicio());
+                nuevoJson.put("hora_de_cierre", (incidente.getFecha_hora_de_cierre() != null) ?
+                        incidente.getFecha_hora_de_cierre() :
+                        "");
+                nuevoJson.put("resuelto", (!incidente.getResuelto()) ?
+                        "NO" :
+                        "SI");
 
-            nuevoJson.put("incidentes", listaIncidentes);
-            ctx.render("listadoIncidentes.hbs", nuevoJson);
+                result.add( nuevoJson);
+
+            }
+
+
+
         }
+        Map<String, Object> context = new HashMap<>();
+        context.put("incidentes", result);
+        ctx.render("listadoIncidentes.hbs", context);
+
     }
 }

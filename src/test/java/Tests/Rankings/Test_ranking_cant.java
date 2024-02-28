@@ -33,21 +33,17 @@ public class Test_ranking_cant {
         establecimientos.add(miserere);
 
         Servicio_Base banioHombresMiserere= new Servicio_Base();
-        banioHombresMiserere.setEstablecimiento(miserere);
         servicios.add(banioHombresMiserere);
 
         Servicio_Base banioMujeresMiserere= new Servicio_Base();
-        banioMujeresMiserere.setEstablecimiento(miserere);
         servicios.add(banioMujeresMiserere);
 
         Servicio_Compuesto baniosMiserere=new Servicio_Compuesto();
-        baniosMiserere.setEstablecimiento(miserere);
         baniosMiserere.agregar(banioHombresMiserere);
         baniosMiserere.agregar(banioMujeresMiserere);
         servicios.add(baniosMiserere);
 
         Servicio_Base escalerasMiserere=new Servicio_Base();
-        escalerasMiserere.setEstablecimiento(miserere);
         servicios.add(escalerasMiserere);
 
         Establecimiento loria=new Establecimiento();
@@ -56,21 +52,17 @@ public class Test_ranking_cant {
         establecimientos.add(loria);
 
         Servicio_Base banioHombresLoria= new Servicio_Base();
-        banioHombresLoria.setEstablecimiento(loria);
         servicios.add(banioHombresLoria);
 
         Servicio_Base banioMujeresLoria= new Servicio_Base();
-        banioMujeresLoria.setEstablecimiento(loria);
         servicios.add(banioMujeresLoria);
 
         Servicio_Compuesto baniosLoria=new Servicio_Compuesto();
-        baniosLoria.setEstablecimiento(loria);
         baniosLoria.agregar(banioHombresLoria);
         baniosLoria.agregar(banioMujeresLoria);
         servicios.add(baniosLoria);
 
         Servicio_Base escalerasLoria=new Servicio_Base();
-        escalerasLoria.setEstablecimiento(loria);
         servicios.add(escalerasLoria);
 
 
@@ -88,21 +80,17 @@ public class Test_ranking_cant {
         establecimientos.add(jujuy);
 
         Servicio_Base banioHombresJujuy= new Servicio_Base();
-        banioHombresJujuy.setEstablecimiento(jujuy);
         servicios.add(banioHombresJujuy);
 
         Servicio_Base banioMujeresJujuy= new Servicio_Base();
-        banioMujeresJujuy.setEstablecimiento(jujuy);
         servicios.add(banioMujeresJujuy);
 
         Servicio_Compuesto baniosJujuy=new Servicio_Compuesto();
-        baniosJujuy.setEstablecimiento(jujuy);
         baniosJujuy.agregar(banioHombresJujuy);
         baniosJujuy.agregar(banioMujeresJujuy);
         servicios.add(baniosJujuy);
 
         Servicio_Base escalerasJujuy=new Servicio_Base();
-        escalerasJujuy.setEstablecimiento(jujuy);
         servicios.add(escalerasJujuy);
 
         Establecimiento bolivar=new Establecimiento();
@@ -111,21 +99,17 @@ public class Test_ranking_cant {
         establecimientos.add(bolivar);
 
         Servicio_Base banioHombresBolivar= new Servicio_Base();
-        banioHombresBolivar.setEstablecimiento(bolivar);
         servicios.add(banioHombresBolivar);
 
         Servicio_Base banioMujeresBolivar= new Servicio_Base();
-        banioMujeresBolivar.setEstablecimiento(bolivar);
         servicios.add(banioMujeresBolivar);
 
         Servicio_Compuesto baniosBolivar=new Servicio_Compuesto();
-        baniosBolivar.setEstablecimiento(bolivar);
         baniosBolivar.agregar(banioHombresBolivar);
         baniosBolivar.agregar(banioMujeresBolivar);
         servicios.add(baniosBolivar);
 
         Servicio_Base escalerasBolivar=new Servicio_Base();
-        escalerasBolivar.setEstablecimiento(bolivar);
         servicios.add(escalerasBolivar);
 
 
@@ -143,21 +127,17 @@ public class Test_ranking_cant {
         establecimientos.add(bancoCiudadBoedo);
 
         Servicio_Base banioHombresBancoCiudadBoedo= new Servicio_Base();
-        banioHombresBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         servicios.add(banioHombresBancoCiudadBoedo);
 
         Servicio_Base banioMujeresBancoCiudadBoedo= new Servicio_Base();
-        banioMujeresBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         servicios.add(banioMujeresBancoCiudadBoedo);
 
         Servicio_Compuesto baniosBancoCiudadBoedo=new Servicio_Compuesto();
-        baniosBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         baniosBancoCiudadBoedo.agregar(banioHombresBancoCiudadBoedo);
         baniosBancoCiudadBoedo.agregar(banioMujeresBancoCiudadBoedo);
         servicios.add(baniosBancoCiudadBoedo);
 
         Servicio_Base ascensorBancoCiudadBoedo=new Servicio_Base();
-        ascensorBancoCiudadBoedo.setEstablecimiento(bancoCiudadBoedo);
         servicios.add(ascensorBancoCiudadBoedo);
 
 

@@ -4,10 +4,7 @@ import Domain.Personas.Usuario;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import org.jetbrains.annotations.NotNull;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 public class DBUsuarioController implements WithSimplePersistenceUnit {
@@ -45,12 +42,20 @@ public class DBUsuarioController implements WithSimplePersistenceUnit {
 
 
     public int validarInicioDeSecion(String login, String pass){
-        String qery ="SELECT u FROM Usuario u Where u.login = :x and u.password = :y";
-        Usuario usuario = (Usuario) entityManager().createQuery(qery).setParameter("x",login).setParameter("y", pass).getSingleResult();
+        try {
+            String query = "SELECT u FROM Usuario u WHERE u.login = :x AND u.password = :y";
+            Query consulta = entityManager().createQuery(query)
+                    .setParameter("x", login)
+                    .setParameter("y", pass);
+            Usuario usuario = (Usuario) consulta.getSingleResult();
 
-        if (usuario.getPassword().equals(pass)){
-            return usuario.getId();
-        }else{
+            if (usuario.getPassword().equals(pass)) {
+                return usuario.getId();
+            } else {
+                return -1;
+            }
+        } catch (NoResultException e) {
+            // Manejar el caso cuando no se encuentra ningún resultado
             return -1;
         }
     }

@@ -22,7 +22,7 @@ public class Notificacion_Data implements Notificacion_Builder {
 
   @Override
   public Notificacion_Builder agregar_mensaje(Incidente incidente) {
-    notificacion.setMensaje("El establecimiento " +  incidente.getServicio_afectado().getEstablecimiento().getNombre()
+    notificacion.setMensaje("El establecimiento " +  incidente.getEstablecimiento().getEntidad().getSucursales().get(1).getNombre()
             + " esta teniendo fallas en el servicio " + incidente.getServicio_afectado().getDescripcion());
     return this;
   }

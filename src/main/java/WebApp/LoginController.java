@@ -1,6 +1,7 @@
 package WebApp;
 
 import Controllers.DBControllers.DBUsuarioController;
+import Domain.Personas.Usuario;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
@@ -18,15 +19,19 @@ public class LoginController implements Handler, WithSimplePersistenceUnit {
     @Override
     public void handle(Context ctx) throws Exception {
         int id= new DBUsuarioController().validarInicioDeSecion(ctx.formParam("login"), ctx.formParam("pass"));
+        Usuario usuarioLogueado = new DBUsuarioController().recuperarUsuarioPorId(id);
         if (id!=-1){
-            ctx.sessionAttribute("id",id);
-            ctx.redirect("/home");
 
+            ctx.sessionAttribute("id",id);
+            ctx.sessionAttribute("usuario", usuarioLogueado);
+
+            ctx.redirect("/home");
 
 
         }
         else{
-            ctx.render("home.hbs", Map.of("errorMensaje", "NO se ha podido inciar sesión."));
+
+            ctx.render("index.hbs", Map.of("errorMensaje", "NO se ha podido inciar sesión."));
 
         }
     }

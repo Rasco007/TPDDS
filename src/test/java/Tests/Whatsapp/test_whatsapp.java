@@ -60,7 +60,7 @@ public class test_whatsapp {
         usuario.getPerfil().setComunidades(set);
         lista.add(usuario);
 
-        comunidad.setMiembros((Set<Usuario>) lista);
+        comunidad.setMiembros( lista);
 
         // inicializacion del metodo de sincronizacion y notificacion
         Metodo_Sincronizacion metodo_sincronizacion = new Cuando_Sucede();
@@ -120,7 +120,7 @@ public class test_whatsapp {
         lista.add(max);
 
         // se agrega la lista de usuarios a la comunidad
-        comunidad.setMiembros((Set<Usuario>) lista);
+        comunidad.setMiembros(lista);
 
         // se inicializa la lista de incidentes y se la agrega a la comunidad
         comunidad.setListado_incidentes(new ArrayList<Incidente>());
@@ -130,7 +130,6 @@ public class test_whatsapp {
         establecimiento.setNombre("Medrano");
         Servicio servicio_original = new Servicio_Base();
         servicio_original.setDescripcion("Escalera");
-        servicio_original.setEstablecimiento(establecimiento);
 
         // se carga el incidente y luego se lo cierra
         facundo.cargar_nuevo_incidente(comunidad,servicio_original, "");

@@ -14,10 +14,10 @@ public class Departamento{
   @Id
   @GeneratedValue
   public int id;
-  @Column(name = "varchar(100)")
+  @Column(name = "nombre")
   public String nombre;
-  @OneToOne
-  @JoinColumn(name = "centroide",referencedColumnName = "id")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "centroide_id",referencedColumnName = "id")
   public Centroide centroide;
   @OneToMany(mappedBy = "departamento")
   public Set<Localidad> localidades;

@@ -10,22 +10,21 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "organismo_control")
 public class Organismo_Control {
     @Id
     @GeneratedValue
     private int id;
     @Column(columnDefinition = "varchar(100)")
     private String nombre;
-    @ManyToMany
-    @JoinTable(name = "organismo_entidad",joinColumns = @JoinColumn(name = "organismo_id",referencedColumnName = "id"),
-                                     inverseJoinColumns = @JoinColumn(name = "entidad_id",referencedColumnName = "id"))
-    private List<Entidad> entidades;
+    @ManyToOne
+    @JoinColumn(name = "entidad_id")
+    private Entidad entidad;
     @Transient
     private List<Servicio> servicios;
 
 
-    public void setServicios(){
+    /*public void setServicios(){
         for(int i=0;i<entidades.size();i++) {
             for (int j=0;i<entidades.get(i).getSucursales().size();j++) {
                 for (int k=0;i<entidades.get(i).getSucursales().get(j).getServicios().size();k++) {
@@ -33,6 +32,6 @@ public class Organismo_Control {
                 }
             }
         }
-    }
+    }*/
 
 }

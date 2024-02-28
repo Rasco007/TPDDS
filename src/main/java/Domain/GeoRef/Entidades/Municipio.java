@@ -1,16 +1,18 @@
 package Domain.GeoRef.Entidades;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+@Getter
+@Setter
 @Entity
 @Table
 public class Municipio {
   @Id
   @GeneratedValue
   public int id;
-  @Column(name = "varchar(100)")
+  @Column(name = "nombre")
   public String nombre;
-  @OneToOne
-  @JoinColumn(name = "centroide",referencedColumnName = "id")
-  public Centroide centroide;
+
 }

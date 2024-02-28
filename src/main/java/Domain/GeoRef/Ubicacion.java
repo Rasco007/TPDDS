@@ -17,6 +17,20 @@ public class Ubicacion {
   @Id
   @GeneratedValue
   private int id;
+
+  @Column
+  private Double latitud;
+  @Column
+  private Double longitud;
+
+  public Ubicacion(){
+
+  }
+  public Ubicacion(Double i, Double i1) {
+    latitud = i;
+    longitud = i1;
+  }
+  /*
   @OneToOne
   @JoinColumn(name = "Localidad",referencedColumnName = "id")
   private Localidad localidad;
@@ -28,5 +42,5 @@ public class Ubicacion {
   private Provincia provincia;
   @OneToOne
   @JoinColumn(name = "municipio",referencedColumnName = "id")
-  private Municipio municipio;
+  private Municipio municipio;*/
 }

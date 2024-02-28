@@ -42,18 +42,39 @@ public class Usuario {
 
 
   //persitencias
-  @ManyToMany(mappedBy = "usuarios_asociados")
+  @OneToMany(mappedBy="usuario_creador")
   private List<Entidad> entidades;
-  @ManyToMany(mappedBy = "administradores")
-  private List<Comunidad> comunidades_admin;
-  @ManyToMany(mappedBy = "miembros_observadores")
-  private List<Comunidad> comunidades_observador;
-  @ManyToMany(mappedBy = "miembros_afectados")
-  private List<Comunidad> comunidades_afectados;
+
+  @ManyToMany(mappedBy = "miembros")
+  private List<Comunidad> comunidades;
 
 
 
 
+
+  public void setEntidad(Entidad u){
+    if (this.getEntidades() == null) {
+      this.setEntidades(new ArrayList<>()); // Inicializa la lista si es nula
+    }
+    this.getEntidades().add(u);
+
+  }
+  public void setComunidad(Comunidad c){
+    this.getComunidades().add(c);
+
+  }
+
+
+  public void removeComunidad(Comunidad u){
+    for(int i=0;i<getComunidades().size();i++){
+      if (this.getComunidades().get(i) == u) {
+        getComunidades().remove(i);
+
+      }
+    }
+
+
+  }
 
 
   public void cargar_nuevo_incidente(Comunidad comunidad, Servicio servicio, String observaciones) throws MessagingException, IOException {

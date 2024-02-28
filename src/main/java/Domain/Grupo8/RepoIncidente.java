@@ -1,4 +1,4 @@
-package WebApp;
+package Domain.Grupo8;
 
 import Domain.Grupo8.Incident;
 

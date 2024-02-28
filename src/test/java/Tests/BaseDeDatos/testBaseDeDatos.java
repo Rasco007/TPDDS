@@ -28,21 +28,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class testBaseDeDatos implements WithSimplePersistenceUnit {
-
-    private boolean agregarEntidad() throws SQLException {
+    @Test
+    public boolean agregarEntidad() throws SQLException {
         Usuario usuario=new Usuario();
         usuario.setLogin("carlos");
         usuario.setPassword("saul");
 
         Entidad entidad= new Entidad();
-        entidad.setNombre("LineaB");
+        entidad.setNombre("Banco Ciudad");
         entidad.setReceptor_informacion_designado(usuario);
 
         Entidad_Prestadora entidad_prestadora=new Entidad_Prestadora();
-        entidad_prestadora.setNombre("Metrovias");
+        entidad_prestadora.setNombre("Bancos Argentinos");
         List<Entidad> entidades=new ArrayList<Entidad>();
         entidades.add(entidad);
-        entidad_prestadora.setEntidades(entidades);
+        //entidad_prestadora.setEntidades(entidades);
         List<Entidad_Prestadora> prestadoras=new ArrayList<Entidad_Prestadora>();
         prestadoras.add(entidad_prestadora);
         entidad.setPrestadoras(prestadoras);
@@ -76,7 +76,7 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
         miserere.setEntidad(lineaA);
 
 
-        Servicio_Base banioHombresMiserere= new Servicio_Base();
+        /*Servicio_Base banioHombresMiserere= new Servicio_Base();
         banioHombresMiserere.setEstablecimiento(miserere);
 
 
@@ -91,16 +91,17 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
 
 
         Servicio_Base escalerasMiserere=new Servicio_Base();
-        escalerasMiserere.setEstablecimiento(miserere);
+        escalerasMiserere.setEstablecimiento(miserere);*/
 
         EntityTransaction tx = entityManager().getTransaction();
         tx.begin();
+        /*
         entityManager().persist(lineaA);
         entityManager().persist(miserere);
         entityManager().persist(banioHombresMiserere);
         entityManager().persist(baniosMiserere);
         entityManager().persist(banioMujeresMiserere);
-        entityManager().persist(escalerasMiserere);
+        entityManager().persist(escalerasMiserere);*/
         tx.commit();
 
         return true;
@@ -149,6 +150,19 @@ public class testBaseDeDatos implements WithSimplePersistenceUnit {
         Assertions.assertTrue(crear_servicios());
     }
 
+    public boolean eliminarUsuario(){
+        Usuario usuario= entityManager().find(Usuario.class,23);
+        EntityTransaction tx = entityManager().getTransaction();
+        tx.begin();
+        entityManager().remove(usuario);
+        tx.commit();
+        return true;
+    }
+    @Test
+    public void usuarios() throws SQLException{
+        Assertions.assertTrue(eliminarUsuario());
+
+    }
     @Test
     public void testearAperturaIncidente() throws SQLException {
         String query = "SELECT e FROM Incidente e";
