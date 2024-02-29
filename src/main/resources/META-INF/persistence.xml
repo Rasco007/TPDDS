@@ -13,7 +13,7 @@
             <property name="hibernate.archive.autodetection" value="class"/>
             <!-- esto de aca q esta comentado es para trabajar con una base de datos en memoria-->
              <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/basedeprueba" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://sql10.freemysqlhosting.net/sql10687460" />
             <!--<property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="mysql" /> -->
 
@@ -28,8 +28,8 @@
 
 
             <!-- TODO: hay q poner usuario y contraseña abajo -->
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="12345678"/>
+            <property name="hibernate.connection.username" value="sql10687460"/>
+            <property name="hibernate.connection.password" value="Ds9AjtLk7z"/>
             <!-- CHATGPT-->
             <property name="hibernate.id.new_generator_mappings" value="false"/>
             
