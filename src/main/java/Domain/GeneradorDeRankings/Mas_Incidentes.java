@@ -3,20 +3,34 @@ package Domain.GeneradorDeRankings;
 import Domain.Entidades.Entidad;
 import Domain.Incidente.Incidente;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Mas_Incidentes {
     private List<Entidad_Y_Entero> listaADevolver;
-    public Ranking generarRanking(List<Incidente> incidentes){
+    public void generarRanking(List<Incidente> incidentes){
 
 
         for (int i=0;i<incidentes.size();i++){
-            this.contarEntidades(incidentes.get(i).getServicio_afectado().getEstablecimiento().getEntidad());
+            this.contarEntidades(incidentes.get(i).getEstablecimiento().getEntidad());
         }
-
+        for(int i=0;i<listaADevolver.size();i++){
+            System.out.print(listaADevolver.get(i).getEntidad().getNombre());System.out.print(listaADevolver.get(i).getCant());
+            System.out.print("\n");
+        }
+        System.out.print("\n");
         //Collections.sort(this.listaADevolver,(a,b)-> {a.getCant() < b.getCant()});
-
-        return new Ranking(new Timestamp(System.currentTimeMillis()), new Mapeo().mapearEntidades(listaADevolver),"Mas incidentes");
+        listaADevolver = new SortEntidades().sortEntidadYentero(listaADevolver);
+        for(int i=0;i<listaADevolver.size();i++){
+            System.out.print(listaADevolver.get(i).getEntidad().getNombre());System.out.print(listaADevolver.get(i).getCant());
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+        for(int i=0;i<listaADevolver.size();i++){
+            listaADevolver.get(i).getEntidad().setRankingCantIncidentes(
+                    new Ranking(LocalDate.now(),i,"Mas Incidentes"));
+        }
     }
 
     private void contarEntidades(Entidad entidad){
@@ -37,7 +51,7 @@ public class Mas_Incidentes {
     }
 
     public Mas_Incidentes() {
-        this.listaADevolver=null;
+        this.listaADevolver=new ArrayList<Entidad_Y_Entero>();
     }
 }
 

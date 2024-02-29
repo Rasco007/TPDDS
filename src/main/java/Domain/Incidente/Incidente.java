@@ -1,4 +1,9 @@
 package Domain.Incidente;
+import Domain.Entidades.Entidad;
+import Domain.Entidades.Establecimiento;
+import Domain.GeneradorDeRankings.Generador_Rankings;
+import Domain.Personas.Comunidad;
+import Domain.Personas.Perfil;
 import Domain.Notificaciones.Notificador;
 import Domain.Notificaciones.Tipos_Notificaciones.Notificacion;
 import Domain.Notificaciones.Tipos_Notificaciones.Notificacion_Builder;
@@ -13,24 +18,65 @@ import javax.mail.MessagingException;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Getter
 @Setter
+@Entity
+@Table
 public class Incidente {
+    public Incidente() {
+        fecha_hora_de_inicio= new Timestamp(System.currentTimeMillis());
+        resuelto=false;
+        tiempo_de_resolucion=0;
+    }
+
+    @Id
+    @GeneratedValue
+    private int id;
+    @OneToOne //todo, no seria many to one asi el servicio puede tener mas de un incidente?
+                //aunque pueda tener uno solo no resuelto, el resto los tenes q guardar igual
+    @JoinColumn(name = "servicioAfectado_id",referencedColumnName = "id")
     private Servicio servicio_afectado;
+    @Column
     private Timestamp fecha_hora_de_inicio;
-    private Timestamp fecha_Hora_de_cierre;
+    @Column
+    private Timestamp fecha_hora_de_cierre;
+    @Column
+    private long tiempo_de_resolucion;
+
+    @Column(columnDefinition = "varchar(200)")
+
     private String observaciones;
+    @Column
     private Boolean resuelto;
+    @ManyToOne
+    @JoinColumn(name = "comunidadAfectada_id",referencedColumnName = "id")
     private Comunidad comunidad_afectada;
-    private Notificacion_Builder notificacionAbrir = new Notificacion_Data();
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_iniciador",referencedColumnName = "id")
+    private Perfil usuario_iniciador;
+    @ManyToOne
+    @JoinColumn(name = "usuario_finalizador",referencedColumnName = "id")
+    private Perfil usuario_finalizador;
+
+    @ManyToOne
+    @JoinColumn(name="establecimiento_id",referencedColumnName = "id")
+    private Establecimiento establecimiento;
+
+    //persistencia
+    @ManyToOne
+    @JoinColumn(name = "generador_semanal",referencedColumnName = "id")
+    private Generador_Rankings generadorSemanal;
+    /*private Notificacion_Builder notificacionAbrir = new Notificacion_Data();
     private Notificacion_Builder notificacionCerrar = new Notificacion_Data_Cierre();
     public Incidente(Servicio servicio_afectado, String observaciones, Comunidad comunidad_afectada){
         this.servicio_afectado = servicio_afectado;
         Long datetime = System.currentTimeMillis();
         this.fecha_hora_de_inicio = new Timestamp(datetime);
-        this.fecha_Hora_de_cierre = null;
+        this.Fecha_Hora_de_cierre = null;
         this.observaciones = observaciones;
         this.resuelto = false;
         this.comunidad_afectada = comunidad_afectada;
@@ -49,5 +95,6 @@ public class Incidente {
         Notificacion data = notificacionAbrir.agregar_usuarios_a_notificar(miembros_notificar)
             .agregar_mensaje(this).construir();
         Notificador.instancia().notificar(data);
-    }
+    }*/
 }
+

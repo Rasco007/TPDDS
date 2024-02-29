@@ -48,7 +48,18 @@ class test_mail {
         Set<Comunidad> set = new HashSet<Comunidad>();
         set.add(comunidad);
 
-        // inicializacion del metodo de sincronizacion y notificacion
+        Perfil perfil = new Perfil();
+
+        Usuario usuario = new Usuario();
+        usuario.setPerfil(perfil);
+        usuario.getPerfil().setNombre("Facundo");
+        usuario.getPerfil().setCorreo("fndalsasso@gmail.com");
+        usuario.getPerfil().setComunidades(set);
+        lista.add(usuario);
+
+        comunidad.setMiembros(lista);
+
+
         Metodo_Sincronizacion metodo_sincronizacion = new Cuando_Sucede();
         Metodo_Notificacion metodo_notificacion = new Email();
 
@@ -106,7 +117,7 @@ class test_mail {
         lista.add(max);
 
         // se agrega la lista de usuarios a la comunidad
-        comunidad.setMiembros(lista);
+        comunidad.setMiembros( lista);
 
         // se inicializa la lista de incidentes y se la agrega a la comunidad
         comunidad.setListado_incidentes(new ArrayList<Incidente>());
@@ -116,7 +127,6 @@ class test_mail {
         establecimiento.setNombre("Medrano");
         Servicio servicio_original = new Servicio_Base();
         servicio_original.setDescripcion("Escalera");
-        servicio_original.setEstablecimiento(establecimiento);
 
         // se carga el incidente y luego se lo cierra
         facundo.cargar_nuevo_incidente(comunidad,servicio_original, "");

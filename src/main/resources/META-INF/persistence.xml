@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="simple-persistence-unit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+
+        <properties>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <!-- esto de aca q esta comentado es para trabajar con una base de datos en memoria-->
+             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://sql10.freemysqlhosting.net/sql10687460" />
+            <!--<property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value="mysql" /> -->
+
+
+
+            <!--
+            <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db"/>-->  <!-- TODO: Fijarse q esten bien los puertos y eso -->
+            <!-- en lo de arriba ese pone  value="jdbc:myswl://localhost:3306/unisocial_2023_mi"-->
+
+
+
+
+            <!-- TODO: hay q poner usuario y contraseña abajo -->
+            <property name="hibernate.connection.username" value="sql10687460"/>
+            <property name="hibernate.connection.password" value="Ds9AjtLk7z"/>
+            <!-- CHATGPT-->
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+            
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- CHATGPT  Estos de aca los saque y no me cambio mucho :)
+
+            <property name="hibernate.ejb.use_class_enhancer" value="true"/>
+            <property name="hibernate.id.optimizer.pooled.preferred" value="pooled-lo"/>-->
+
+
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="use_sql_comments" value="true"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

@@ -51,6 +51,17 @@ public class test_whatsapp {
         Set<Comunidad> set = new HashSet<Comunidad>();
         set.add(comunidad);
 
+        Perfil perfil = new Perfil();
+
+        Usuario usuario = new Usuario();
+        usuario.setPerfil(perfil);
+        usuario.getPerfil().setNombre("Colo");
+        usuario.getPerfil().setTelefono("+5491157072015");
+        usuario.getPerfil().setComunidades(set);
+        lista.add(usuario);
+
+        comunidad.setMiembros( lista);
+
         // inicializacion del metodo de sincronizacion y notificacion
         Metodo_Sincronizacion metodo_sincronizacion = new Cuando_Sucede();
         Metodo_Notificacion metodo_notificacion = new Whatsapp();
@@ -119,7 +130,6 @@ public class test_whatsapp {
         establecimiento.setNombre("Medrano");
         Servicio servicio_original = new Servicio_Base();
         servicio_original.setDescripcion("Escalera");
-        servicio_original.setEstablecimiento(establecimiento);
 
         // se carga el incidente y luego se lo cierra
         facundo.cargar_nuevo_incidente(comunidad,servicio_original, "");

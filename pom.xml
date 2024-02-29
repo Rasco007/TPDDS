@@ -22,6 +22,12 @@
   </properties>
 
   <dependencies>
+      <dependency>
+        <groupId>io.javalin</groupId>
+        <artifactId>javalin</artifactId>
+        <version>5.6.1</version> <!-- Reemplaza esta versión con la última disponible -->
+      </dependency>
+
 
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -30,11 +36,21 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
+    <!--<dependency>
       <groupId>antlr</groupId>
       <artifactId>antlr</artifactId>
       <version>2.7.2</version>
+
+    </dependency>-->
+
+    <!-- Dependencia de ANTLR CHATGPT -->
+    <dependency>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr4</artifactId>
+      <version>4.5.1</version>
     </dependency>
+
+
 
     <dependency>
       <groupId>com.squareup.retrofit2</groupId>
@@ -147,19 +163,95 @@
     </dependency>
 
     <dependency>
-      <groupId>org.unitils</groupId>
-      <artifactId>unitils-core</artifactId>
-      <version>3.4.2</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+
+
+    <!-- JPA Persistence Dependencies -->
+    <dependency>
+      <groupId>io.github.flbulgarelli</groupId>
+      <artifactId>jpa-extras</artifactId>
+      <version>1.0.0-rc1</version>
+    </dependency>
+
+    <!-- drivers jdbc -->
+    <!-- mysql -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.23</version>
+    </dependency>
+
+    <!-- hsqldb -->
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>2.4.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+
+    <!-- <dependency>
+      -<groupId>org.projectlombok</groupId>
+       <artifactId>lombok</artifactId>
+       <version>1.18.28</version>
+       <scope>provided</scope>
+ =======
+       <groupId>org.unitils</groupId>
+       <artifactId>unitils-core</artifactId>
+       <version>3.4.2</version>
+       <scope>test</scope>
+    </dependency>-->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
     </dependency>
     <dependency>
+      <groupId>javax.jdo</groupId>
+      <artifactId>jdo2-api</artifactId>
+      <version>2.3-20090302111651</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse</groupId>
+      <artifactId>osgi</artifactId>
+      <version>3.2.1-R32x_v20060919</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.platform</groupId>
+      <artifactId>org.eclipse.equinox.launcher</artifactId>
+      <version>1.6.400</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.xsemantics</groupId>
+      <artifactId>org.eclipse.xsemantics.runtime</artifactId>
+      <version>1.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.platform</groupId>
+      <artifactId>org.eclipse.osgi.services</artifactId>
+      <version>3.11.100</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.osgi</groupId>
+      <artifactId>org.eclipse.osgi</artifactId>
+      <version>3.7.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.osgi</groupId>
+      <artifactId>org.eclipse.osgi</artifactId>
+      <version>3.6.0.v20100517</version>
+    </dependency>
+
+    <!--<dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-    </dependency>
+    </dependency>-->
   </dependencies>
 
   <build>
@@ -269,6 +361,24 @@
           </archive>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals><goal>assembly</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
+
+
+
