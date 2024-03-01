@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/ejercicio-1.0-SNAPSHOT-jar-with-dependencies.jar WebApp.WebApp
+web: java $JAVA_OPTS -cp target/ejercicio-1.0-SNAPSHOT-jar-with-dependencies.jar ar.edu.utn.frba.dds.WebApp.WebApp
