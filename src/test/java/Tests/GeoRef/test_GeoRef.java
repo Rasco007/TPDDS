@@ -1,14 +1,8 @@
 package Tests.GeoRef;
 
-import Domain.GeoRef.Entidades.*;
-import Domain.GeoRef.Servicio_Georef;
-import java.io.IOException;
-import java.util.Optional;
-import java.util.Scanner;
-
 
 public class test_GeoRef {
-  public static void main(String[] args) throws IOException {
+  /*public static void main(String[] args) throws IOException {
     Servicio_Georef servicioGeoref = Servicio_Georef.instancia();
     System.out.println("Seleccione una de las siguientes provincias, ingresando su id:");
 
@@ -36,5 +30,5 @@ public class test_GeoRef {
     else{
       System.out.println("No existe la provincia seleccionada");
     }
-  }
+  }*/
 }

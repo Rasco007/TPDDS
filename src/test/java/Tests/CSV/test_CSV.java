@@ -1,9 +1,9 @@
 package Tests.CSV;
 
 
-import Domain.CSV.CSV;
-import Domain.Entidades.Entidad;
-import Domain.Entidades.Organismo_Control;
+import ar.edu.utn.frba.dds.Domain.CSV.CSV;
+import ar.edu.utn.frba.dds.Domain.Entidades.Entidad;
+import ar.edu.utn.frba.dds.Domain.Entidades.Organismo_Control;
 
 public class test_CSV {
   public static void main(String[] args) {

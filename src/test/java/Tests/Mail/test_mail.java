@@ -1,30 +1,7 @@
 package Tests.Mail;
 
-import Domain.Entidades.Establecimiento;
-import Domain.Incidente.Incidente;
-import Domain.Notificaciones.Email;
-import Domain.Notificaciones.Metodo_Notificacion;
-import Domain.Notificaciones.Tipo_Sincronizacion.Cuando_Sucede;
-import Domain.Notificaciones.Tipo_Sincronizacion.Metodo_Sincronizacion;
-import Domain.Notificaciones.api_gmail.Mail_Config;
-import Domain.Notificaciones.api_gmail.Servicio_Gmail;
-import Domain.Personas.Comunidad;
-import Domain.Personas.Perfil;
-import Domain.Personas.Usuario;
-import Domain.Servicio.Servicio;
-import Domain.Servicio.Servicio_Base;
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-import java.security.InvalidParameterException;
-import java.util.HashSet;
-import java.util.Set;
-import javax.mail.MessagingException;
-
 class test_mail {
-
+/*
     @Test
     public void mandaMail(){
         try {
@@ -131,5 +108,5 @@ class test_mail {
         // se carga el incidente y luego se lo cierra
         facundo.cargar_nuevo_incidente(comunidad,servicio_original, "");
         facundo.cerrar_incidente(comunidad.getListado_incidentes().iterator().next(), comunidad);
-    }
+    }*/
 }

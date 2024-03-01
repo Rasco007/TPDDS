@@ -1,28 +1,19 @@
 package Tests.BaseDeDatos;
 
-import Controllers.DBControllers.DBUsuarioController;
-import Domain.Entidades.Entidad;
-import Domain.Entidades.Entidad_Prestadora;
-import Domain.Entidades.Establecimiento;
-import Domain.Incidente.Incidente;
-import Domain.Personas.Perfil;
-import Domain.Personas.Usuario;
-import Domain.Servicio.Estados.Activo;
-import Domain.Servicio.Estados.Estado_Servicio;
-import Domain.Servicio.Servicio;
-import Domain.Servicio.Servicio_Base;
-import Domain.Servicio.Servicio_Compuesto;
+import ar.edu.utn.frba.dds.DBControllers.DBUsuarioController;
+import ar.edu.utn.frba.dds.Domain.Entidades.Entidad;
+import ar.edu.utn.frba.dds.Domain.Entidades.Entidad_Prestadora;
+import ar.edu.utn.frba.dds.Domain.Entidades.Establecimiento;
+import ar.edu.utn.frba.dds.Domain.Incidente.Incidente;
+import ar.edu.utn.frba.dds.Domain.Personas.Perfil;
+import ar.edu.utn.frba.dds.Domain.Personas.Usuario;
+import ar.edu.utn.frba.dds.Domain.Servicio.Servicio_Base;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

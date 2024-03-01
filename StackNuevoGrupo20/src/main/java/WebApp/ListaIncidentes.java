@@ -1,7 +1,5 @@
 package WebApp;
 
-import Domain.Incidente.Incidente;
-
 import Domain.ApplicationContextProvider;
 
 import Domain.Incidente.Incidente;

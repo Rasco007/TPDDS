@@ -1,6 +1,5 @@
 package Domain.GeoRef;
 
-import Domain.GeoRef.Entidades.*;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;

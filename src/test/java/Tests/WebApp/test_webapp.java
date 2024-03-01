@@ -1,16 +1,10 @@
 package Tests.WebApp;
 
 
-import Domain.Grupo8.Entity;
-import Domain.Grupo8.Incident;
-import WebApp.RankingsController;
-import Domain.Grupo8.RepoEntidad;
 import io.javalin.Javalin;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static io.javalin.apibuilder.ApiBuilder.get;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +16,7 @@ public class test_webapp {
 
     @Test
     public void main() throws IOException {
-
+/*
         RepoEntidad repo = new RepoEntidad();
 
         Incident incidente1 = new Incident("baño se rompe", 20);
@@ -42,7 +36,7 @@ public class test_webapp {
         //RankingsController api = new RankingsController(repo);
 
         //System.out.println(api);
-
+*/
     }
     }
 

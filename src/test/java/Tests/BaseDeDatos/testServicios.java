@@ -1,11 +1,8 @@
 package Tests.BaseDeDatos;
 
-import Domain.Entidades.Entidad;
-import Domain.Entidades.Establecimiento;
-import Domain.Servicio.Estados.Activo;
-import Domain.Servicio.Servicio;
-import Domain.Servicio.Servicio_Base;
-import Domain.Servicio.Servicio_Compuesto;
+import ar.edu.utn.frba.dds.Domain.Servicio.Estados.Activo;
+import ar.edu.utn.frba.dds.Domain.Servicio.Servicio;
+import ar.edu.utn.frba.dds.Domain.Servicio.Servicio_Base;
 import io.github.flbulgarelli.jpa.extras.simple.WithSimplePersistenceUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
