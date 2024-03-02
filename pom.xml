@@ -10,15 +10,15 @@
   </parent>
   <groupId>ar.edu.utn.frba.dds</groupId>
   <artifactId>ejercicio</artifactId>
-  <version>1.2.0</version>
+  <version>1.0-SNAPSHOT</version>
 
   <name>ejercicio</name>
   <url>https://github.com/dds-utn</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -67,8 +67,8 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.28</version>
-      <scope>provided</scope>
+      <version>1.18.26</version>
+      <scope>compile</scope>
     </dependency>
 
 
@@ -117,12 +117,6 @@
 
 
 
-    <dependency>
-      <groupId>io.javalin</groupId>
-      <artifactId>javalin</artifactId>
-      <version>5.6.1</version>
-
-    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -228,37 +222,6 @@
       <artifactId>junit-jupiter</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.eclipse</groupId>
-      <artifactId>osgi</artifactId>
-      <version>3.2.1-R32x_v20060919</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.platform</groupId>
-      <artifactId>org.eclipse.equinox.launcher</artifactId>
-      <version>1.6.400</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.xsemantics</groupId>
-      <artifactId>org.eclipse.xsemantics.runtime</artifactId>
-      <version>1.23.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.platform</groupId>
-      <artifactId>org.eclipse.osgi.services</artifactId>
-      <version>3.11.100</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.osgi</groupId>
-      <artifactId>org.eclipse.osgi</artifactId>
-      <version>3.7.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.osgi</groupId>
-      <artifactId>org.eclipse.osgi</artifactId>
-      <version>3.6.0.v20100517</version>
-    </dependency>
 
     <!--<dependency>
       <groupId>junit</groupId>
@@ -269,37 +232,7 @@
   <build>
     <plugins>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.2</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.2.1</version>
-        <configuration>
-          <configLocation>google_checks.xml</configLocation>
-          <violationSeverity>warning</violationSeverity>
-          <violationIgnore>
-            MissingJavadocMethod,
-            MissingJavadocPackage,
-            MissingJavadocType,
-            NonEmptyAtclauseDescription,
-            JavadocParagraph,
-            SummaryJavadoc
-          </violationIgnore>
-        </configuration>
-        <executions>
-          <execution>
-            <id>Validar Formateo</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
@@ -319,20 +252,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>3.11.0</version>
         <configuration>
-          <source>9</source>
-          <target>9</target>
+          <source>17</source>
+          <target>17</target>
         </configuration>
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>3.0.1</version>
-        <goals><goal>prepare</goal></goals>
-
-      </plugin>
       <plugin>
 
         <!-- Build an executable JAR -->
