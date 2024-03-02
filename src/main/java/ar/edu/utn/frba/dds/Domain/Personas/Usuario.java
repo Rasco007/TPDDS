@@ -13,6 +13,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Getter
@@ -51,7 +52,10 @@ public class Usuario {
 
 
 
+  public boolean estaUnido(Comunidad u) {
+    return this.getComunidades().contains(u);
 
+  }
 
   public void setEntidad(Entidad u){
     if (this.getEntidades() == null) {
@@ -61,16 +65,18 @@ public class Usuario {
 
   }
   public void setComunidad(Comunidad c){
-    this.getComunidades().add(c);
-
+    if (!this.getComunidades().contains(c)) {
+      this.getComunidades().add(c);
+    }
   }
 
 
   public void removeComunidad(Comunidad u){
-    for(int i=0;i<getComunidades().size();i++){
-      if (this.getComunidades().get(i) == u) {
-        getComunidades().remove(i);
-
+    Iterator<Comunidad> iterator = getComunidades().iterator();
+    while (iterator.hasNext()) {
+      Comunidad comunidad = iterator.next();
+      if (comunidad.equals(u)) {
+        iterator.remove();
       }
     }
 

@@ -154,15 +154,27 @@
                     {{#each comunidades}}
                     <tbody>
                     <tr>
-                        <form method="POST" action="/listaComunidades">
 
                         <td> <input name = "id_comunidad" value="{{id}}" type="hidden"/>
                             {{id}}</td>
                         <td>{{nombre}}</td>
                         <td>{{descripcion}}</td>
 
-                        <td>{{{unido}}}</td>
-                        </form>
+                        <td>{{#if unido}}
+                        {{!-- Usuario unido a la comunidad --}}
+                            <form id="form-salir-{{id}}" action="/salirComunidad" method="post">
+                                <input type="hidden" name="id_comunidad" value="{{id}}">
+                                <button id="btn-salir-{{id}}" class="btn btn-danger" type="submit">Salir</button>
+                            </form>
+                        {{else}}
+                        {{!-- Usuario no unido a la comunidad --}}
+                            <form id="form-unir-{{id}}" action="/unirseComunidad" method="post">
+                                <input type="hidden" name="id_comunidad" value="{{id}}">
+                                <button id="btn-unir-{{id}}" class="btn btn-primary" type="submit">Unirme</button>
+                            </form>
+                        {{/if}}
+
+                        </td>
 
                     </tr>
                     {{/each}}

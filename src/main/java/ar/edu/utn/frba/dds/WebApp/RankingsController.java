@@ -88,7 +88,9 @@ public class RankingsController implements Handler, WithSimplePersistenceUnit {
             int incidentesNoResueltos = 0;
 
             if (incidente.getResuelto()) {
-                tResolucionSum += incidente.getTiempo_de_resolucion();
+                long diferenciaEnMinutos = (incidente.getFecha_hora_de_cierre().getTime() - incidente.getFecha_hora_de_inicio().getTime())/60000;
+
+                tResolucionSum += diferenciaEnMinutos;
             } else {
                 incidentesNoResueltos++;
             }
@@ -99,11 +101,17 @@ public class RankingsController implements Handler, WithSimplePersistenceUnit {
             result.add(nuevoJson);
 
         }
+        result.sort(Comparator.comparingDouble(o -> (Double) o.get("nuevoValor")));
+        Collections.reverse(result);
+
+        List<Map<String, Object>> resultComus = new IncidenteController().listarComunidades(ctx);
+
         Map<String, Object> context = new HashMap<>();
         context.put("rankings", result);
+        context.put("opcionesComunidades", resultComus);
+
         ctx.render("visualizacionRankings.hbs", context);
 
-        result.sort(Comparator.comparingDouble(o -> (Double) o.get("nuevoValor")));
 
 
     }

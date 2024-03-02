@@ -28,17 +28,14 @@ public class IncidenteController implements WithSimplePersistenceUnit {
         List<Comunidad> listadoComunidades = hibernateQuery.getResultList();
 
         //System.out.println(listadoComunidades);
-
-        for (Comunidad comunidad :listadoComunidades) {
-
-            if (comunidad.estaElMiembro(usuarioDB)) {
+        List<Comunidad> listadoComunidadesUsuario= usuarioDB.getComunidades();
+        for (Comunidad comunidad :listadoComunidadesUsuario) {
 
                 Map<String, Object> nuevoJson = new HashMap<>();
                 nuevoJson.put("valorComu", comunidad.getNombre());
                 nuevoJson.put("valorIdComu", comunidad.getId());
 
                 result.add( nuevoJson);
-            }
 
         }
 

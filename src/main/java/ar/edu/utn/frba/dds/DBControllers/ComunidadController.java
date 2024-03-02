@@ -34,9 +34,7 @@ public class ComunidadController implements WithSimplePersistenceUnit {
                 nuevoJson.put("nombre", comunidad.getNombre());
                 nuevoJson.put("descripcion", comunidad.getDescripcion());
 
-                nuevoJson.put("unido", (!comunidad.estaElMiembro(usuarioDB)) ?
-                                        "<button style=\"font-size: 12px;\" class=\"btn btn-primary btn-lg btn-block btn-unir\" type=\"submit\">Unirme</button>" :
-                                        "<input name = \"salir\" value=\"salir\" type=\"hidden\"/> <button style=\"font-size: 12px;\" class=\"btn btn-danger btn-lg btn-block btn-unir\"  type=\"submit\">Salir</button>");
+                nuevoJson.put("unido", usuarioDB.estaUnido(comunidad));
                 result.add( nuevoJson);
 
 

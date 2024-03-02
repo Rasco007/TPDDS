@@ -4,6 +4,7 @@ import ar.edu.utn.frba.dds.Domain.Entidades.Entidad;
 import ar.edu.utn.frba.dds.Domain.Incidente.Incidente;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import lombok.Getter;
@@ -48,13 +49,8 @@ public class Comunidad {
 
 
   public boolean estaElMiembro(Usuario u) {
-    for (int i = 0; i < this.getMiembros().size(); i++) {
-      if (this.getMiembros().get(i) == u) {
-        return true;
-      }
+    return this.getMiembros().contains(u);
 
-    }
-    return false;
   }
 
   public boolean estaElAdmin(Usuario u) {
@@ -71,7 +67,9 @@ public class Comunidad {
       if (this.getMiembros() == null) {
         this.setMiembros(new ArrayList<>()); // Inicializa la lista si es nula
       }
-    this.getMiembros().add(u);
+      if (!this.getMiembros().contains(u)) {
+        this.getMiembros().add(u);
+      }
 
   }
 
@@ -87,15 +85,14 @@ public class Comunidad {
 
   }
 
-  public void removeMiembro(Usuario u){
-    for(int i=0;i<getMiembros().size();i++){
-      if (this.getMiembros().get(i) == u) {
-        getMiembros().remove(i);
-
+  public void removeMiembro(Usuario u) {
+    Iterator<Usuario> iterator = getMiembros().iterator();
+    while (iterator.hasNext()) {
+      Usuario miembro = iterator.next();
+      if (miembro.equals(u)) {
+        iterator.remove();
       }
     }
-
-
   }
 
 

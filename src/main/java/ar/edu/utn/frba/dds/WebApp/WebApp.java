@@ -56,7 +56,8 @@ public class WebApp {
         app.post("/aperturaIncidentes", ctx -> new AltaIncidenteController().altaIncidente(ctx));
         app.post("/cierreIncidentes", new CierreIncidenteController());
         app.post("/adminUsuario", new AdminUsuariosController());
-        app.post("/listaComunidades", ctx -> new listadoComunidades().unirseComunidad(ctx));
+        app.post("/unirseComunidad", ctx -> new listadoComunidades().unirseComunidad(ctx));
+        app.post("/salirComunidad", ctx -> new listadoComunidades().salirComunidad(ctx));
         app.post("/altaComunidades", ctx -> new altaComunidad().alta(ctx));
         app.post("/cierreComunidad", ctx -> new cierreComunidad().eliminarComunidad(ctx));
         app.post("/altaEntidades", ctx -> new altaEntidad().altaEntidad(ctx));
